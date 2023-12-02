@@ -284,10 +284,10 @@ int main(int argc, char *argv[]){
   fprintf(saida,"#include<iostream>\n");
   fprintf(saida,"#include<stdio.h>\n");
   fprintf(saida,"#include<math.h>\n");
-  fprintf(saida,"\nint main(int argc, char *argv[]){\n");
+  fprintf(saida,"\nint main(int argc, char *argv[])\n");
   cria_lista();
   imprima(root);
-  fprintf(saida,"\n}\n");
+  fprintf(saida,"\n\n");
 
   fclose(entrada);
   fclose(saida);

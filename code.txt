@@ -1,3 +1,5 @@
-firbs a = 2;
+firbs a = 1;
 firbs b = 1;
+firbs c = 2;
+a+b;
 
