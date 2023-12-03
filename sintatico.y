@@ -25,7 +25,7 @@ void yyerror(const char *);
 }
 
 %token MAIN ENDMAIN INT FLOAT CHAR PRINT READ NOT AND OR IF ELSE WHILE
-%token SULSUL DAGDAG FIRBS PABA KOOJ WOOBLE LOOBLE
+%token SULSUL DAGDAG FIRBS PABA KOOJ WOOBLE LOOBLE JUUN ENDCOMMA
 %token EQ NEQ GT LT GTEQ LTEQ
 %token <var> INTEIRO
 %token <var> REAL
@@ -50,11 +50,11 @@ void yyerror(const char *);
 %left AND
 %left NOT
 
-%start S
+%start program
 
 %%
 
-S:  SULSUL BLOCO DAGDAG 
+program:  SULSUL BLOCO DAGDAG 
 	{
 		codigo = "#include<stdio.h>\n";		
 		codigo += "#include<stdlib.h>\n";		
@@ -87,7 +87,7 @@ COMANDO: DECLARACAO
 		| IF_COMANDO
 	;
 
-DECLARACAO: PABA VAR '=' EXPR ';'  
+DECLARACAO: PABA VAR '=' EXPR ENDCOMMA  
 			{ 
 				strcpy($$, "\tfloat ");
 				strcat($$, $2);
@@ -96,14 +96,14 @@ DECLARACAO: PABA VAR '=' EXPR ';'
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_FLOAT;
 			}
-			| PABA VAR ';'  		   
+			| PABA VAR ENDCOMMA   		   
 			{ 
 				strcpy($$, "\tfloat ");
 				strcat($$, $2);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_FLOAT;
 			}
-			| FIRBS VAR '=' EXPR ';'  
+			| FIRBS VAR '=' EXPR ENDCOMMA   
 			{ 
 				strcpy($$, "\tint ");
 				strcat($$, $2);
@@ -112,14 +112,14 @@ DECLARACAO: PABA VAR '=' EXPR ';'
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_INT;
 			}
-			| FIRBS VAR ';'  		   
+			| FIRBS VAR ENDCOMMA   		   
 			{ 
 				strcpy($$, "\tint ");
 				strcat($$, $2);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_INT;
 			}
-			| KOOJ VAR '=' CARACTERE ';'  
+			| KOOJ VAR '=' CARACTERE ENDCOMMA   
 			{ 
 				strcpy($$, "\tchar ");
 				strcat($$, $2);
@@ -131,7 +131,7 @@ DECLARACAO: PABA VAR '=' EXPR ';'
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_CHAR;
 			}
-			| KOOJ VAR ';'  		   
+			| KOOJ VAR ENDCOMMA   		   
 			{ 
 				strcpy($$, "\tchar ");
 				strcat($$, $2);
@@ -178,7 +178,7 @@ EXPR: EXPR '+' EXPR
 	;
 
 
-ATRIB: VAR '=' EXPR ';'	
+ATRIB: VAR '=' EXPR ENDCOMMA 
 	{
 		strcpy($$, "\t");
 		strcat($$, $1);
@@ -186,7 +186,7 @@ ATRIB: VAR '=' EXPR ';'
 		strcat($$, $3);
 		strcat($$, ";\n");
 	} 	
-	| VAR '=' CARACTERE ';' 	
+	| VAR '=' CARACTERE ENDCOMMA  	
 	{ 
 		strcpy($$, "\t");
 		strcat($$, $1);
@@ -199,7 +199,7 @@ ATRIB: VAR '=' EXPR ';'
 	}
 	; 
 
-SAIDA:  PRINT '(' VAR ')' ';' 
+SAIDA:  JUUN '(' VAR ')' ENDCOMMA  
 		{
 			if(variaveis[$3] == Tipo::TIPO_INT){
 				strcpy($$, "\tprintf(\"\%d\",");
@@ -211,19 +211,19 @@ SAIDA:  PRINT '(' VAR ')' ';'
 				strcat($$, $3);
 				strcat($$, ");\n");
 		}
-		| PRINT '(' INTEIRO ')' ';'  	
+		| PRINT '(' INTEIRO ')' ENDCOMMA   	
 		{ 
 			strcpy($$, "\tprintf(\"\%d\",");
 			strcat($$, $3);
 			strcat($$, ");\n"); 
 		}
-		| PRINT '(' REAL ')' ';'
+		| PRINT '(' REAL ')' ENDCOMMA 
 		{
 			strcpy($$, "\tprintf(\"\%f\",");
 			strcat($$, $3);
 			strcat($$, ");\n");
 		}
-		| PRINT '(' CARACTERE ')' ';'
+		| PRINT '(' CARACTERE ')' ENDCOMMA 
 		{
 			strcpy($$, "\tprintf(\"\%c\",");
 			char caractere[5] = "'";

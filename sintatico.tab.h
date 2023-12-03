@@ -58,16 +58,18 @@
      KOOJ = 275,
      WOOBLE = 276,
      LOOBLE = 277,
-     EQ = 278,
-     NEQ = 279,
-     GT = 280,
-     LT = 281,
-     GTEQ = 282,
-     LTEQ = 283,
-     INTEIRO = 284,
-     REAL = 285,
-     CARACTERE = 286,
-     VAR = 287
+     JUUN = 278,
+     ENDCOMMA = 279,
+     EQ = 280,
+     NEQ = 281,
+     GT = 282,
+     LT = 283,
+     GTEQ = 284,
+     LTEQ = 285,
+     INTEIRO = 286,
+     REAL = 287,
+     CARACTERE = 288,
+     VAR = 289
    };
 #endif
 
@@ -85,7 +87,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 89 "sintatico.tab.h"
+#line 91 "sintatico.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

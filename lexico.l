@@ -20,6 +20,7 @@ caractere       {separador}[a-zA-Z0-9/" "]{separador}
 var             {letra}({letra}|{digito}|{underscore})*
 
 %%
+";"          {return ENDCOMMA;}
 "sulsul"     {return SULSUL;}
 "dagdag"     {return DAGDAG;}
 "firbs"      {return FIRBS;}
@@ -27,6 +28,7 @@ var             {letra}({letra}|{digito}|{underscore})*
 "kooj"       {return KOOJ;}
 "wooble"     {return WOOBLE;}
 "looble"     {return LOOBLE;}  
+"juun"       {return JUUN;}
 [\t ]+		 { /* ignora espaço em branco */ }
 [\n]+        { /* Ignora quebras de linha */ }
 "print"      { return PRINT; }
