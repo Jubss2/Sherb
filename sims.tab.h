@@ -46,15 +46,17 @@
      PABA = 263,
      KOOJ = 264,
      FRO = 265,
-     OPEN_BRACE = 266,
-     SULSUL = 267,
-     CLOSE_BRACE = 268,
-     OPEN_BLOCK = 269,
-     CLOSE_BLOCK = 270,
-     COMMA = 271,
-     EQ = 272,
-     GQ = 273,
-     NE = 274
+     LOOBLE = 266,
+     WOOBLE = 267,
+     OPEN_BRACE = 268,
+     SULSUL = 269,
+     CLOSE_BRACE = 270,
+     OPEN_BLOCK = 271,
+     CLOSE_BLOCK = 272,
+     COMMA = 273,
+     EQ = 274,
+     GQ = 275,
+     NE = 276
    };
 #endif
 
@@ -72,7 +74,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 76 "sims.tab.h"
+#line 78 "sims.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

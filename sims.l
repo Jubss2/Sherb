@@ -18,6 +18,8 @@
 "kooj"              		{ return KOOJ; }
 "fro" 		 	{ return FRO;}
 "sulsul"                  { return SULSUL; }
+"wooble"                  { return WOOBLE; }
+"looble"                  { return LOOBLE; }
 
 [-|+]?[0-9]+(\.[0-9]+) { yylval.pont->rval = atof(yytext);  printf("numeroreal\n");
                                            return NUMREAL;
@@ -39,7 +41,7 @@
 ","    { return COMMA; }
 ";"    { return EOL; }
 
-"="|"+"|"-"|"*"|"/"|"%" { return *yytext; }
+[+\-*/] { return *yytext; }
 
 .      { return *yytext; }
 

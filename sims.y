@@ -37,6 +37,8 @@ char *var_nome;
 %token <pont> PABA
 %token <pont> KOOJ
 %token <pont> FRO
+%token <pont> LOOBLE
+%token <pont> WOOBLE
 
 %token <pont> OPEN_BRACE 
 %token <pont> SULSUL
@@ -55,12 +57,16 @@ char *var_nome;
 %type <pont> bloco
 %type <pont> ident
 %type <pont> atribuicao
+%type <pont> comparacao
 %type <pont> comando
 %type <pont> exp
 %type <pont> soma
 %type <pont> subtracao
 %type <pont> divisao
 %type <pont> multiplicacao
+%type <pont> if_comando
+%type <pont> igualdade
+%type <pont> diferenca
 %right 'fro'
 %right '='
 %left  '-' '+'
@@ -106,10 +112,10 @@ exp: NUMREAL { $$ = (No*)malloc(sizeof(No)); printf("exp\n");
     }
     
     | ident {printf("exp\n");}
-    | soma {printf("exp\n");}
-    | subtracao {printf("exp\n");}
-    | divisao {printf("exp\n");}
-    | multiplicacao {printf("exp\n");}
+    | soma {printf("soma\n");}
+    | subtracao {printf("sub\n");}
+    | divisao {printf("/\n");}
+    | multiplicacao {printf("*\n");}
     ;
 
 atribuicao: PABA ident '=' exp { $$ = (No*)malloc(sizeof(No)); printf("atribuicao\n");
@@ -137,19 +143,26 @@ atribuicao: PABA ident '=' exp { $$ = (No*)malloc(sizeof(No)); printf("atribuica
 
 comando: atribuicao {printf("comando\n");}
         | bloco {printf("comando\n");}
+        | if_comando {printf("comando\n");}
 ;
 
-soma: exp '+' exp { $$ = (No*)malloc(sizeof(No));
+comparacao: igualdade {printf("comparacao\n");}
+          | diferenca {printf("comparacao\n");}
+;
+
+soma: exp '+' exp { 
+          $$ = (No*)malloc(sizeof(No)); printf("soma");
           $$->token = '+';
-			    $$->esq = $1;
-			    $$->dir = $3;
+			                    $$->esq = $1;
+			                    $$->dir = $3;
           $$->prox = NULL;
       }
 
-subtracao: exp '-' exp { $$ = (No*)malloc(sizeof(No));
+subtracao: exp '-' exp { 
+          $$ = (No*)malloc(sizeof(No));
           $$->token = '-';
-			    $$->esq = $1;
-			    $$->dir = $3;
+			                      $$->esq = $1;
+			                      $$->dir = $3;
           $$->prox = NULL;
       }
 
@@ -166,6 +179,37 @@ multiplicacao: exp '*' exp { $$ = (No*)malloc(sizeof(No));
 			    $$->dir = $3;
           $$->prox = NULL;
       }
+
+igualdade: exp EQ exp     { $$ = (No*)malloc(sizeof(No)); printf("igualdade\n");
+          $$->token = EQ;
+			    $$->esq = $1;
+			    $$->dir = $3;
+          $$->prox = NULL;
+                          }
+
+diferenca: exp NE exp     { $$ = (No*)malloc(sizeof(No)); printf("diferenca\n");
+                            $$->token = NE;
+			    $$->esq = $1;
+			    $$->dir = $3;
+          $$->prox = NULL;
+                          }
+if_comando: LOOBLE OPEN_BRACE comparacao CLOSE_BRACE bloco
+                { $$ = (No*)malloc(sizeof(No)); printf("IF\n");
+		             $$->token = LOOBLE;
+		             $$->lookahead = $3;
+		             $$->esq = $5;
+		             $$->dir = NULL;
+      $$->prox = NULL;
+                }
+           | LOOBLE OPEN_BRACE comparacao CLOSE_BRACE bloco WOOBLE bloco
+                { $$ = (No*)malloc(sizeof(No)); printf("if else\n");
+		               $$->token = LOOBLE;
+		               $$->lookahead = $3;
+		              $$->esq = $5;
+		              $$->dir = $7;
+      $$->prox = NULL;
+                }
+           ;
 
 
 %%
@@ -235,7 +279,25 @@ void imprima(No *root){
         fprintf(saida,"/");
         imprima(root->dir);
         break;  
-
+case LOOBLE:
+        printf("IF\n");
+        fprintf(saida," \nif ");
+        fprintf(saida,"(");
+        imprima(root->lookahead);
+        fprintf(saida,")");
+        fprintf(saida,"  \n"); printf("aquiiii\n");
+        imprima(root->esq);
+        fprintf(saida," ");
+        
+        if(root->dir != NULL){
+        fprintf(saida,"\n else");
+        fprintf(saida," \n");
+        imprima(root->dir);
+        fprintf(saida," \n");
+        }
+        else fprintf(saida,"\n");
+        break;
+        
     
     default: 
       fprintf(saida,"Desconhecido ! Token = %d (%c) \n", root->token, root->token);

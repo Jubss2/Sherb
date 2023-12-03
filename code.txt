@@ -1,3 +1,12 @@
+<<<<<<< Updated upstream
 firbs a = 2;
 firbs b = 1;
 
+=======
+firbs a = 1;
+firbs b = 2;
+paba c = 1.5;
+looble(firbs f= 9){
+b=2;
+}
+>>>>>>> Stashed changes
