@@ -25,6 +25,7 @@ void yyerror(const char *);
 }
 
 %token MAIN ENDMAIN INT FLOAT CHAR PRINT READ NOT AND OR IF ELSE WHILE
+%token SULSUL DAGDAG FIRBS PABA KOOJ WOOBLE LOOBLE
 %token EQ NEQ GT LT GTEQ LTEQ
 %token <var> INTEIRO
 %token <var> REAL
@@ -38,12 +39,10 @@ void yyerror(const char *);
 %type <var> DECLARACAO 
 %type <var> ATRIB 
 %type <var> SAIDA 
-%type <var> ENTRADA
 %type <var> LOGICA
 %type <var> VALOR
 %type <var> EXPR_RELAC
 %type <var> IF_COMANDO
-%type <var> WHILE_COMANDO
 
 %left '+' '-'
 %left '*' '/'
@@ -55,7 +54,7 @@ void yyerror(const char *);
 
 %%
 
-S:  MAIN BLOCO ENDMAIN 
+S:  SULSUL BLOCO DAGDAG 
 	{
 		codigo = "#include<stdio.h>\n";		
 		codigo += "#include<stdlib.h>\n";		
@@ -82,10 +81,13 @@ COMANDOS: 	COMANDOS COMANDO
 			}
     ;
 
-COMANDO: DECLARACAO | ATRIB | SAIDA | ENTRADA | IF_COMANDO | WHILE_COMANDO
+COMANDO: DECLARACAO 
+		| ATRIB 
+		| SAIDA 
+		| IF_COMANDO
 	;
 
-DECLARACAO: FLOAT VAR '=' EXPR ';'  
+DECLARACAO: PABA VAR '=' EXPR ';'  
 			{ 
 				strcpy($$, "\tfloat ");
 				strcat($$, $2);
@@ -94,14 +96,14 @@ DECLARACAO: FLOAT VAR '=' EXPR ';'
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_FLOAT;
 			}
-			| FLOAT VAR ';'  		   
+			| PABA VAR ';'  		   
 			{ 
 				strcpy($$, "\tfloat ");
 				strcat($$, $2);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_FLOAT;
 			}
-			| INT VAR '=' EXPR ';'  
+			| FIRBS VAR '=' EXPR ';'  
 			{ 
 				strcpy($$, "\tint ");
 				strcat($$, $2);
@@ -110,14 +112,14 @@ DECLARACAO: FLOAT VAR '=' EXPR ';'
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_INT;
 			}
-			| INT VAR ';'  		   
+			| FIRBS VAR ';'  		   
 			{ 
 				strcpy($$, "\tint ");
 				strcat($$, $2);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_INT;
 			}
-			| CHAR VAR '=' CARACTERE ';'  
+			| KOOJ VAR '=' CARACTERE ';'  
 			{ 
 				strcpy($$, "\tchar ");
 				strcat($$, $2);
@@ -129,7 +131,7 @@ DECLARACAO: FLOAT VAR '=' EXPR ';'
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_CHAR;
 			}
-			| CHAR VAR ';'  		   
+			| KOOJ VAR ';'  		   
 			{ 
 				strcpy($$, "\tchar ");
 				strcat($$, $2);
@@ -232,20 +234,6 @@ SAIDA:  PRINT '(' VAR ')' ';'
 		}
 		;
 
-ENTRADA:  	READ '(' VAR ')' ';'
-			{
-				if(variaveis[$3] == Tipo::TIPO_INT){
-					strcpy($$, "\tscanf(\"\%d\",&");
-				}else if(variaveis[$3] == Tipo::TIPO_FLOAT){
-					strcpy($$, "\tscanf(\"\%f\",&");
-				}else{
-					strcpy($$, "\tscanf(\"\%c\",&");
-				}
-				strcat($$, $3);
-				strcat($$, ");\n");
-			}
-		;
-
 LOGICA: NOT LOGICA 			
 		{ 
 			strcpy($$, "!");
@@ -314,7 +302,7 @@ EXPR_RELAC: VALOR EQ VALOR
 			}
 			;
 
-IF_COMANDO: IF '(' LOGICA ')' BLOCO ELSE BLOCO
+IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO WOOBLE BLOCO
 			{
 				strcpy($$, "\tif(");
 				strcat($$, $3);
@@ -324,7 +312,7 @@ IF_COMANDO: IF '(' LOGICA ')' BLOCO ELSE BLOCO
 				strcat($$, $7);
 				strcat($$, "}\n");
 			}
-			| IF '(' LOGICA ')' BLOCO
+			| LOOBLE '(' LOGICA ')' BLOCO
 			{ 
 				strcpy($$, "\tif(");
 				strcat($$, $3);
@@ -334,15 +322,6 @@ IF_COMANDO: IF '(' LOGICA ')' BLOCO ELSE BLOCO
 			}
 		;
 
-WHILE_COMANDO:  WHILE '(' LOGICA ')' BLOCO
-				{
-					strcpy($$, "\twhile(");
-					strcat($$, $3);
-					strcat($$, "){\n");
-					strcat($$, $5);
-					strcat($$, "}\n");
-				}
-	;
 %%
 
 /* definido pelo analisador léxico */

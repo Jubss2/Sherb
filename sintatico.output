@@ -1,8 +1,21 @@
+Terminals unused in grammar
+
+   MAIN
+   ENDMAIN
+   INT
+   FLOAT
+   CHAR
+   READ
+   IF
+   ELSE
+   WHILE
+
+
 Grammar
 
     0 $accept: S $end
 
-    1 S: MAIN BLOCO ENDMAIN
+    1 S: SULSUL BLOCO DAGDAG
 
     2 BLOCO: '{' COMANDOS '}'
 
@@ -12,146 +25,143 @@ Grammar
     5 COMANDO: DECLARACAO
     6        | ATRIB
     7        | SAIDA
-    8        | ENTRADA
-    9        | IF_COMANDO
-   10        | WHILE_COMANDO
+    8        | IF_COMANDO
 
-   11 DECLARACAO: FLOAT VAR '=' EXPR ';'
-   12           | FLOAT VAR ';'
-   13           | INT VAR '=' EXPR ';'
-   14           | INT VAR ';'
-   15           | CHAR VAR '=' CARACTERE ';'
-   16           | CHAR VAR ';'
+    9 DECLARACAO: PABA VAR '=' EXPR ';'
+   10           | PABA VAR ';'
+   11           | FIRBS VAR '=' EXPR ';'
+   12           | FIRBS VAR ';'
+   13           | KOOJ VAR '=' CARACTERE ';'
+   14           | KOOJ VAR ';'
 
-   17 EXPR: EXPR '+' EXPR
-   18     | EXPR '-' EXPR
-   19     | EXPR '*' EXPR
-   20     | EXPR '/' EXPR
-   21     | '(' EXPR ')'
-   22     | VAR
-   23     | REAL
-   24     | INTEIRO
+   15 EXPR: EXPR '+' EXPR
+   16     | EXPR '-' EXPR
+   17     | EXPR '*' EXPR
+   18     | EXPR '/' EXPR
+   19     | '(' EXPR ')'
+   20     | VAR
+   21     | REAL
+   22     | INTEIRO
 
-   25 ATRIB: VAR '=' EXPR ';'
-   26      | VAR '=' CARACTERE ';'
+   23 ATRIB: VAR '=' EXPR ';'
+   24      | VAR '=' CARACTERE ';'
 
-   27 SAIDA: PRINT '(' VAR ')' ';'
-   28      | PRINT '(' INTEIRO ')' ';'
-   29      | PRINT '(' REAL ')' ';'
-   30      | PRINT '(' CARACTERE ')' ';'
+   25 SAIDA: PRINT '(' VAR ')' ';'
+   26      | PRINT '(' INTEIRO ')' ';'
+   27      | PRINT '(' REAL ')' ';'
+   28      | PRINT '(' CARACTERE ')' ';'
 
-   31 ENTRADA: READ '(' VAR ')' ';'
+   29 LOGICA: NOT LOGICA
+   30       | LOGICA AND LOGICA
+   31       | LOGICA OR LOGICA
+   32       | '(' LOGICA ')'
+   33       | EXPR_RELAC
+   34       | VALOR
 
-   32 LOGICA: NOT LOGICA
-   33       | LOGICA AND LOGICA
-   34       | LOGICA OR LOGICA
-   35       | '(' LOGICA ')'
-   36       | EXPR_RELAC
-   37       | VALOR
+   35 VALOR: VAR
+   36      | INTEIRO
+   37      | REAL
 
-   38 VALOR: VAR
-   39      | INTEIRO
-   40      | REAL
+   38 EXPR_RELAC: VALOR EQ VALOR
+   39           | VALOR NEQ VALOR
+   40           | VALOR GT VALOR
+   41           | VALOR LT VALOR
+   42           | VALOR GTEQ VALOR
+   43           | VALOR LTEQ VALOR
 
-   41 EXPR_RELAC: VALOR EQ VALOR
-   42           | VALOR NEQ VALOR
-   43           | VALOR GT VALOR
-   44           | VALOR LT VALOR
-   45           | VALOR GTEQ VALOR
-   46           | VALOR LTEQ VALOR
-
-   47 IF_COMANDO: IF '(' LOGICA ')' BLOCO ELSE BLOCO
-   48           | IF '(' LOGICA ')' BLOCO
-
-   49 WHILE_COMANDO: WHILE '(' LOGICA ')' BLOCO
+   44 IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO WOOBLE BLOCO
+   45           | LOOBLE '(' LOGICA ')' BLOCO
 
 
 Terminals, with rules where they appear
 
 $end (0) 0
-'(' (40) 21 27 28 29 30 31 35 47 48 49
-')' (41) 21 27 28 29 30 31 35 47 48 49
-'*' (42) 19
-'+' (43) 17
-'-' (45) 18
-'/' (47) 20
-';' (59) 11 12 13 14 15 16 25 26 27 28 29 30 31
-'=' (61) 11 13 15 25 26
+'(' (40) 19 25 26 27 28 32 44 45
+')' (41) 19 25 26 27 28 32 44 45
+'*' (42) 17
+'+' (43) 15
+'-' (45) 16
+'/' (47) 18
+';' (59) 9 10 11 12 13 14 23 24 25 26 27 28
+'=' (61) 9 11 13 23 24
 '{' (123) 2
 '}' (125) 2
 error (256)
-MAIN (258) 1
-ENDMAIN (259) 1
-INT (260) 13 14
-FLOAT (261) 11 12
-CHAR (262) 15 16
-PRINT (263) 27 28 29 30
-READ (264) 31
-NOT (265) 32
-AND (266) 33
-OR (267) 34
-IF (268) 47 48
-ELSE (269) 47
-WHILE (270) 49
-EQ (271) 41
-NEQ (272) 42
-GT (273) 43
-LT (274) 44
-GTEQ (275) 45
-LTEQ (276) 46
-INTEIRO (277) 24 28 39
-REAL (278) 23 29 40
-CARACTERE (279) 15 26 30
-VAR (280) 11 12 13 14 15 16 22 25 26 27 31 38
+MAIN (258)
+ENDMAIN (259)
+INT (260)
+FLOAT (261)
+CHAR (262)
+PRINT (263) 25 26 27 28
+READ (264)
+NOT (265) 29
+AND (266) 30
+OR (267) 31
+IF (268)
+ELSE (269)
+WHILE (270)
+SULSUL (271) 1
+DAGDAG (272) 1
+FIRBS (273) 11 12
+PABA (274) 9 10
+KOOJ (275) 13 14
+WOOBLE (276) 44
+LOOBLE (277) 44 45
+EQ (278) 38
+NEQ (279) 39
+GT (280) 40
+LT (281) 41
+GTEQ (282) 42
+LTEQ (283) 43
+INTEIRO (284) 22 26 36
+REAL (285) 21 27 37
+CARACTERE (286) 13 24 28
+VAR (287) 9 10 11 12 13 14 20 23 24 25 35
 
 
 Nonterminals, with rules where they appear
 
-$accept (36)
+$accept (43)
     on left: 0
-S (37)
+S (44)
     on left: 1, on right: 0
-BLOCO (38)
-    on left: 2, on right: 1 47 48 49
-COMANDOS (39)
+BLOCO (45)
+    on left: 2, on right: 1 44 45
+COMANDOS (46)
     on left: 3 4, on right: 2 3
-COMANDO (40)
-    on left: 5 6 7 8 9 10, on right: 3 4
-DECLARACAO (41)
-    on left: 11 12 13 14 15 16, on right: 5
-EXPR (42)
-    on left: 17 18 19 20 21 22 23 24, on right: 11 13 17 18 19 20 21
-    25
-ATRIB (43)
-    on left: 25 26, on right: 6
-SAIDA (44)
-    on left: 27 28 29 30, on right: 7
-ENTRADA (45)
-    on left: 31, on right: 8
-LOGICA (46)
-    on left: 32 33 34 35 36 37, on right: 32 33 34 35 47 48 49
-VALOR (47)
-    on left: 38 39 40, on right: 37 41 42 43 44 45 46
-EXPR_RELAC (48)
-    on left: 41 42 43 44 45 46, on right: 36
-IF_COMANDO (49)
-    on left: 47 48, on right: 9
-WHILE_COMANDO (50)
-    on left: 49, on right: 10
+COMANDO (47)
+    on left: 5 6 7 8, on right: 3 4
+DECLARACAO (48)
+    on left: 9 10 11 12 13 14, on right: 5
+EXPR (49)
+    on left: 15 16 17 18 19 20 21 22, on right: 9 11 15 16 17 18 19
+    23
+ATRIB (50)
+    on left: 23 24, on right: 6
+SAIDA (51)
+    on left: 25 26 27 28, on right: 7
+LOGICA (52)
+    on left: 29 30 31 32 33 34, on right: 29 30 31 32 44 45
+VALOR (53)
+    on left: 35 36 37, on right: 34 38 39 40 41 42 43
+EXPR_RELAC (54)
+    on left: 38 39 40 41 42 43, on right: 33
+IF_COMANDO (55)
+    on left: 44 45, on right: 8
 
 
 state 0
 
     0 $accept: . S $end
 
-    MAIN  shift, and go to state 1
+    SULSUL  shift, and go to state 1
 
     S  go to state 2
 
 
 state 1
 
-    1 S: MAIN . BLOCO ENDMAIN
+    1 S: SULSUL . BLOCO DAGDAG
 
     '{'  shift, and go to state 3
 
@@ -169,30 +179,26 @@ state 3
 
     2 BLOCO: '{' . COMANDOS '}'
 
-    INT    shift, and go to state 6
-    FLOAT  shift, and go to state 7
-    CHAR   shift, and go to state 8
-    PRINT  shift, and go to state 9
-    READ   shift, and go to state 10
-    IF     shift, and go to state 11
-    WHILE  shift, and go to state 12
-    VAR    shift, and go to state 13
+    PRINT   shift, and go to state 6
+    FIRBS   shift, and go to state 7
+    PABA    shift, and go to state 8
+    KOOJ    shift, and go to state 9
+    LOOBLE  shift, and go to state 10
+    VAR     shift, and go to state 11
 
-    COMANDOS       go to state 14
-    COMANDO        go to state 15
-    DECLARACAO     go to state 16
-    ATRIB          go to state 17
-    SAIDA          go to state 18
-    ENTRADA        go to state 19
-    IF_COMANDO     go to state 20
-    WHILE_COMANDO  go to state 21
+    COMANDOS    go to state 12
+    COMANDO     go to state 13
+    DECLARACAO  go to state 14
+    ATRIB       go to state 15
+    SAIDA       go to state 16
+    IF_COMANDO  go to state 17
 
 
 state 4
 
-    1 S: MAIN BLOCO . ENDMAIN
+    1 S: SULSUL BLOCO . DAGDAG
 
-    ENDMAIN  shift, and go to state 22
+    DAGDAG  shift, and go to state 18
 
 
 state 5
@@ -204,991 +210,889 @@ state 5
 
 state 6
 
-   13 DECLARACAO: INT . VAR '=' EXPR ';'
-   14           | INT . VAR ';'
+   25 SAIDA: PRINT . '(' VAR ')' ';'
+   26      | PRINT . '(' INTEIRO ')' ';'
+   27      | PRINT . '(' REAL ')' ';'
+   28      | PRINT . '(' CARACTERE ')' ';'
 
-    VAR  shift, and go to state 23
+    '('  shift, and go to state 19
 
 
 state 7
 
-   11 DECLARACAO: FLOAT . VAR '=' EXPR ';'
-   12           | FLOAT . VAR ';'
+   11 DECLARACAO: FIRBS . VAR '=' EXPR ';'
+   12           | FIRBS . VAR ';'
 
-    VAR  shift, and go to state 24
+    VAR  shift, and go to state 20
 
 
 state 8
 
-   15 DECLARACAO: CHAR . VAR '=' CARACTERE ';'
-   16           | CHAR . VAR ';'
+    9 DECLARACAO: PABA . VAR '=' EXPR ';'
+   10           | PABA . VAR ';'
 
-    VAR  shift, and go to state 25
+    VAR  shift, and go to state 21
 
 
 state 9
 
-   27 SAIDA: PRINT . '(' VAR ')' ';'
-   28      | PRINT . '(' INTEIRO ')' ';'
-   29      | PRINT . '(' REAL ')' ';'
-   30      | PRINT . '(' CARACTERE ')' ';'
+   13 DECLARACAO: KOOJ . VAR '=' CARACTERE ';'
+   14           | KOOJ . VAR ';'
 
-    '('  shift, and go to state 26
+    VAR  shift, and go to state 22
 
 
 state 10
 
-   31 ENTRADA: READ . '(' VAR ')' ';'
+   44 IF_COMANDO: LOOBLE . '(' LOGICA ')' BLOCO WOOBLE BLOCO
+   45           | LOOBLE . '(' LOGICA ')' BLOCO
 
-    '('  shift, and go to state 27
+    '('  shift, and go to state 23
 
 
 state 11
 
-   47 IF_COMANDO: IF . '(' LOGICA ')' BLOCO ELSE BLOCO
-   48           | IF . '(' LOGICA ')' BLOCO
+   23 ATRIB: VAR . '=' EXPR ';'
+   24      | VAR . '=' CARACTERE ';'
 
-    '('  shift, and go to state 28
+    '='  shift, and go to state 24
 
 
 state 12
 
-   49 WHILE_COMANDO: WHILE . '(' LOGICA ')' BLOCO
-
-    '('  shift, and go to state 29
-
-
-state 13
-
-   25 ATRIB: VAR . '=' EXPR ';'
-   26      | VAR . '=' CARACTERE ';'
-
-    '='  shift, and go to state 30
-
-
-state 14
-
     2 BLOCO: '{' COMANDOS . '}'
     3 COMANDOS: COMANDOS . COMANDO
 
-    INT    shift, and go to state 6
-    FLOAT  shift, and go to state 7
-    CHAR   shift, and go to state 8
-    PRINT  shift, and go to state 9
-    READ   shift, and go to state 10
-    IF     shift, and go to state 11
-    WHILE  shift, and go to state 12
-    VAR    shift, and go to state 13
-    '}'    shift, and go to state 31
+    PRINT   shift, and go to state 6
+    FIRBS   shift, and go to state 7
+    PABA    shift, and go to state 8
+    KOOJ    shift, and go to state 9
+    LOOBLE  shift, and go to state 10
+    VAR     shift, and go to state 11
+    '}'     shift, and go to state 25
 
-    COMANDO        go to state 32
-    DECLARACAO     go to state 16
-    ATRIB          go to state 17
-    SAIDA          go to state 18
-    ENTRADA        go to state 19
-    IF_COMANDO     go to state 20
-    WHILE_COMANDO  go to state 21
+    COMANDO     go to state 26
+    DECLARACAO  go to state 14
+    ATRIB       go to state 15
+    SAIDA       go to state 16
+    IF_COMANDO  go to state 17
 
 
-state 15
+state 13
 
     4 COMANDOS: COMANDO .
 
     $default  reduce using rule 4 (COMANDOS)
 
 
-state 16
+state 14
 
     5 COMANDO: DECLARACAO .
 
     $default  reduce using rule 5 (COMANDO)
 
 
-state 17
+state 15
 
     6 COMANDO: ATRIB .
 
     $default  reduce using rule 6 (COMANDO)
 
 
-state 18
+state 16
 
     7 COMANDO: SAIDA .
 
     $default  reduce using rule 7 (COMANDO)
 
 
-state 19
+state 17
 
-    8 COMANDO: ENTRADA .
+    8 COMANDO: IF_COMANDO .
 
     $default  reduce using rule 8 (COMANDO)
 
 
-state 20
+state 18
 
-    9 COMANDO: IF_COMANDO .
-
-    $default  reduce using rule 9 (COMANDO)
-
-
-state 21
-
-   10 COMANDO: WHILE_COMANDO .
-
-    $default  reduce using rule 10 (COMANDO)
-
-
-state 22
-
-    1 S: MAIN BLOCO ENDMAIN .
+    1 S: SULSUL BLOCO DAGDAG .
 
     $default  reduce using rule 1 (S)
 
 
-state 23
+state 19
 
-   13 DECLARACAO: INT VAR . '=' EXPR ';'
-   14           | INT VAR . ';'
+   25 SAIDA: PRINT '(' . VAR ')' ';'
+   26      | PRINT '(' . INTEIRO ')' ';'
+   27      | PRINT '(' . REAL ')' ';'
+   28      | PRINT '(' . CARACTERE ')' ';'
+
+    INTEIRO    shift, and go to state 27
+    REAL       shift, and go to state 28
+    CARACTERE  shift, and go to state 29
+    VAR        shift, and go to state 30
+
+
+state 20
+
+   11 DECLARACAO: FIRBS VAR . '=' EXPR ';'
+   12           | FIRBS VAR . ';'
+
+    '='  shift, and go to state 31
+    ';'  shift, and go to state 32
+
+
+state 21
+
+    9 DECLARACAO: PABA VAR . '=' EXPR ';'
+   10           | PABA VAR . ';'
 
     '='  shift, and go to state 33
     ';'  shift, and go to state 34
 
 
-state 24
+state 22
 
-   11 DECLARACAO: FLOAT VAR . '=' EXPR ';'
-   12           | FLOAT VAR . ';'
+   13 DECLARACAO: KOOJ VAR . '=' CARACTERE ';'
+   14           | KOOJ VAR . ';'
 
     '='  shift, and go to state 35
     ';'  shift, and go to state 36
 
 
+state 23
+
+   44 IF_COMANDO: LOOBLE '(' . LOGICA ')' BLOCO WOOBLE BLOCO
+   45           | LOOBLE '(' . LOGICA ')' BLOCO
+
+    NOT      shift, and go to state 37
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+    '('      shift, and go to state 41
+
+    LOGICA      go to state 42
+    VALOR       go to state 43
+    EXPR_RELAC  go to state 44
+
+
+state 24
+
+   23 ATRIB: VAR '=' . EXPR ';'
+   24      | VAR '=' . CARACTERE ';'
+
+    INTEIRO    shift, and go to state 45
+    REAL       shift, and go to state 46
+    CARACTERE  shift, and go to state 47
+    VAR        shift, and go to state 48
+    '('        shift, and go to state 49
+
+    EXPR  go to state 50
+
+
 state 25
-
-   15 DECLARACAO: CHAR VAR . '=' CARACTERE ';'
-   16           | CHAR VAR . ';'
-
-    '='  shift, and go to state 37
-    ';'  shift, and go to state 38
-
-
-state 26
-
-   27 SAIDA: PRINT '(' . VAR ')' ';'
-   28      | PRINT '(' . INTEIRO ')' ';'
-   29      | PRINT '(' . REAL ')' ';'
-   30      | PRINT '(' . CARACTERE ')' ';'
-
-    INTEIRO    shift, and go to state 39
-    REAL       shift, and go to state 40
-    CARACTERE  shift, and go to state 41
-    VAR        shift, and go to state 42
-
-
-state 27
-
-   31 ENTRADA: READ '(' . VAR ')' ';'
-
-    VAR  shift, and go to state 43
-
-
-state 28
-
-   47 IF_COMANDO: IF '(' . LOGICA ')' BLOCO ELSE BLOCO
-   48           | IF '(' . LOGICA ')' BLOCO
-
-    NOT      shift, and go to state 44
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-    '('      shift, and go to state 48
-
-    LOGICA      go to state 49
-    VALOR       go to state 50
-    EXPR_RELAC  go to state 51
-
-
-state 29
-
-   49 WHILE_COMANDO: WHILE '(' . LOGICA ')' BLOCO
-
-    NOT      shift, and go to state 44
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-    '('      shift, and go to state 48
-
-    LOGICA      go to state 52
-    VALOR       go to state 50
-    EXPR_RELAC  go to state 51
-
-
-state 30
-
-   25 ATRIB: VAR '=' . EXPR ';'
-   26      | VAR '=' . CARACTERE ';'
-
-    INTEIRO    shift, and go to state 53
-    REAL       shift, and go to state 54
-    CARACTERE  shift, and go to state 55
-    VAR        shift, and go to state 56
-    '('        shift, and go to state 57
-
-    EXPR  go to state 58
-
-
-state 31
 
     2 BLOCO: '{' COMANDOS '}' .
 
     $default  reduce using rule 2 (BLOCO)
 
 
-state 32
+state 26
 
     3 COMANDOS: COMANDOS COMANDO .
 
     $default  reduce using rule 3 (COMANDOS)
 
 
-state 33
+state 27
 
-   13 DECLARACAO: INT VAR '=' . EXPR ';'
+   26 SAIDA: PRINT '(' INTEIRO . ')' ';'
 
-    INTEIRO  shift, and go to state 53
-    REAL     shift, and go to state 54
-    VAR      shift, and go to state 56
-    '('      shift, and go to state 57
-
-    EXPR  go to state 59
+    ')'  shift, and go to state 51
 
 
-state 34
+state 28
 
-   14 DECLARACAO: INT VAR ';' .
+   27 SAIDA: PRINT '(' REAL . ')' ';'
 
-    $default  reduce using rule 14 (DECLARACAO)
-
-
-state 35
-
-   11 DECLARACAO: FLOAT VAR '=' . EXPR ';'
-
-    INTEIRO  shift, and go to state 53
-    REAL     shift, and go to state 54
-    VAR      shift, and go to state 56
-    '('      shift, and go to state 57
-
-    EXPR  go to state 60
+    ')'  shift, and go to state 52
 
 
-state 36
+state 29
 
-   12 DECLARACAO: FLOAT VAR ';' .
+   28 SAIDA: PRINT '(' CARACTERE . ')' ';'
+
+    ')'  shift, and go to state 53
+
+
+state 30
+
+   25 SAIDA: PRINT '(' VAR . ')' ';'
+
+    ')'  shift, and go to state 54
+
+
+state 31
+
+   11 DECLARACAO: FIRBS VAR '=' . EXPR ';'
+
+    INTEIRO  shift, and go to state 45
+    REAL     shift, and go to state 46
+    VAR      shift, and go to state 48
+    '('      shift, and go to state 49
+
+    EXPR  go to state 55
+
+
+state 32
+
+   12 DECLARACAO: FIRBS VAR ';' .
 
     $default  reduce using rule 12 (DECLARACAO)
 
 
+state 33
+
+    9 DECLARACAO: PABA VAR '=' . EXPR ';'
+
+    INTEIRO  shift, and go to state 45
+    REAL     shift, and go to state 46
+    VAR      shift, and go to state 48
+    '('      shift, and go to state 49
+
+    EXPR  go to state 56
+
+
+state 34
+
+   10 DECLARACAO: PABA VAR ';' .
+
+    $default  reduce using rule 10 (DECLARACAO)
+
+
+state 35
+
+   13 DECLARACAO: KOOJ VAR '=' . CARACTERE ';'
+
+    CARACTERE  shift, and go to state 57
+
+
+state 36
+
+   14 DECLARACAO: KOOJ VAR ';' .
+
+    $default  reduce using rule 14 (DECLARACAO)
+
+
 state 37
 
-   15 DECLARACAO: CHAR VAR '=' . CARACTERE ';'
+   29 LOGICA: NOT . LOGICA
 
-    CARACTERE  shift, and go to state 61
+    NOT      shift, and go to state 37
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+    '('      shift, and go to state 41
+
+    LOGICA      go to state 58
+    VALOR       go to state 43
+    EXPR_RELAC  go to state 44
 
 
 state 38
 
-   16 DECLARACAO: CHAR VAR ';' .
+   36 VALOR: INTEIRO .
 
-    $default  reduce using rule 16 (DECLARACAO)
+    $default  reduce using rule 36 (VALOR)
 
 
 state 39
 
-   28 SAIDA: PRINT '(' INTEIRO . ')' ';'
+   37 VALOR: REAL .
 
-    ')'  shift, and go to state 62
+    $default  reduce using rule 37 (VALOR)
 
 
 state 40
 
-   29 SAIDA: PRINT '(' REAL . ')' ';'
+   35 VALOR: VAR .
 
-    ')'  shift, and go to state 63
+    $default  reduce using rule 35 (VALOR)
 
 
 state 41
 
-   30 SAIDA: PRINT '(' CARACTERE . ')' ';'
+   32 LOGICA: '(' . LOGICA ')'
 
-    ')'  shift, and go to state 64
+    NOT      shift, and go to state 37
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+    '('      shift, and go to state 41
+
+    LOGICA      go to state 59
+    VALOR       go to state 43
+    EXPR_RELAC  go to state 44
 
 
 state 42
 
-   27 SAIDA: PRINT '(' VAR . ')' ';'
+   30 LOGICA: LOGICA . AND LOGICA
+   31       | LOGICA . OR LOGICA
+   44 IF_COMANDO: LOOBLE '(' LOGICA . ')' BLOCO WOOBLE BLOCO
+   45           | LOOBLE '(' LOGICA . ')' BLOCO
 
-    ')'  shift, and go to state 65
+    AND  shift, and go to state 60
+    OR   shift, and go to state 61
+    ')'  shift, and go to state 62
 
 
 state 43
 
-   31 ENTRADA: READ '(' VAR . ')' ';'
-
-    ')'  shift, and go to state 66
-
-
-state 44
-
-   32 LOGICA: NOT . LOGICA
-
-    NOT      shift, and go to state 44
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-    '('      shift, and go to state 48
-
-    LOGICA      go to state 67
-    VALOR       go to state 50
-    EXPR_RELAC  go to state 51
-
-
-state 45
-
-   39 VALOR: INTEIRO .
-
-    $default  reduce using rule 39 (VALOR)
-
-
-state 46
-
-   40 VALOR: REAL .
-
-    $default  reduce using rule 40 (VALOR)
-
-
-state 47
-
-   38 VALOR: VAR .
-
-    $default  reduce using rule 38 (VALOR)
-
-
-state 48
-
-   35 LOGICA: '(' . LOGICA ')'
-
-    NOT      shift, and go to state 44
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-    '('      shift, and go to state 48
-
-    LOGICA      go to state 68
-    VALOR       go to state 50
-    EXPR_RELAC  go to state 51
-
-
-state 49
-
-   33 LOGICA: LOGICA . AND LOGICA
-   34       | LOGICA . OR LOGICA
-   47 IF_COMANDO: IF '(' LOGICA . ')' BLOCO ELSE BLOCO
-   48           | IF '(' LOGICA . ')' BLOCO
-
-    AND  shift, and go to state 69
-    OR   shift, and go to state 70
-    ')'  shift, and go to state 71
-
-
-state 50
-
-   37 LOGICA: VALOR .
-   41 EXPR_RELAC: VALOR . EQ VALOR
-   42           | VALOR . NEQ VALOR
-   43           | VALOR . GT VALOR
-   44           | VALOR . LT VALOR
-   45           | VALOR . GTEQ VALOR
-   46           | VALOR . LTEQ VALOR
-
-    EQ    shift, and go to state 72
-    NEQ   shift, and go to state 73
-    GT    shift, and go to state 74
-    LT    shift, and go to state 75
-    GTEQ  shift, and go to state 76
-    LTEQ  shift, and go to state 77
-
-    $default  reduce using rule 37 (LOGICA)
-
-
-state 51
-
-   36 LOGICA: EXPR_RELAC .
-
-    $default  reduce using rule 36 (LOGICA)
-
-
-state 52
-
-   33 LOGICA: LOGICA . AND LOGICA
-   34       | LOGICA . OR LOGICA
-   49 WHILE_COMANDO: WHILE '(' LOGICA . ')' BLOCO
-
-    AND  shift, and go to state 69
-    OR   shift, and go to state 70
-    ')'  shift, and go to state 78
-
-
-state 53
-
-   24 EXPR: INTEIRO .
-
-    $default  reduce using rule 24 (EXPR)
-
-
-state 54
-
-   23 EXPR: REAL .
-
-    $default  reduce using rule 23 (EXPR)
-
-
-state 55
-
-   26 ATRIB: VAR '=' CARACTERE . ';'
-
-    ';'  shift, and go to state 79
-
-
-state 56
-
-   22 EXPR: VAR .
-
-    $default  reduce using rule 22 (EXPR)
-
-
-state 57
-
-   21 EXPR: '(' . EXPR ')'
-
-    INTEIRO  shift, and go to state 53
-    REAL     shift, and go to state 54
-    VAR      shift, and go to state 56
-    '('      shift, and go to state 57
-
-    EXPR  go to state 80
-
-
-state 58
-
-   17 EXPR: EXPR . '+' EXPR
-   18     | EXPR . '-' EXPR
-   19     | EXPR . '*' EXPR
-   20     | EXPR . '/' EXPR
-   25 ATRIB: VAR '=' EXPR . ';'
-
-    '+'  shift, and go to state 81
-    '-'  shift, and go to state 82
-    '*'  shift, and go to state 83
-    '/'  shift, and go to state 84
-    ';'  shift, and go to state 85
-
-
-state 59
-
-   13 DECLARACAO: INT VAR '=' EXPR . ';'
-   17 EXPR: EXPR . '+' EXPR
-   18     | EXPR . '-' EXPR
-   19     | EXPR . '*' EXPR
-   20     | EXPR . '/' EXPR
-
-    '+'  shift, and go to state 81
-    '-'  shift, and go to state 82
-    '*'  shift, and go to state 83
-    '/'  shift, and go to state 84
-    ';'  shift, and go to state 86
-
-
-state 60
-
-   11 DECLARACAO: FLOAT VAR '=' EXPR . ';'
-   17 EXPR: EXPR . '+' EXPR
-   18     | EXPR . '-' EXPR
-   19     | EXPR . '*' EXPR
-   20     | EXPR . '/' EXPR
-
-    '+'  shift, and go to state 81
-    '-'  shift, and go to state 82
-    '*'  shift, and go to state 83
-    '/'  shift, and go to state 84
-    ';'  shift, and go to state 87
-
-
-state 61
-
-   15 DECLARACAO: CHAR VAR '=' CARACTERE . ';'
-
-    ';'  shift, and go to state 88
-
-
-state 62
-
-   28 SAIDA: PRINT '(' INTEIRO ')' . ';'
-
-    ';'  shift, and go to state 89
-
-
-state 63
-
-   29 SAIDA: PRINT '(' REAL ')' . ';'
-
-    ';'  shift, and go to state 90
-
-
-state 64
-
-   30 SAIDA: PRINT '(' CARACTERE ')' . ';'
-
-    ';'  shift, and go to state 91
-
-
-state 65
-
-   27 SAIDA: PRINT '(' VAR ')' . ';'
-
-    ';'  shift, and go to state 92
-
-
-state 66
-
-   31 ENTRADA: READ '(' VAR ')' . ';'
-
-    ';'  shift, and go to state 93
-
-
-state 67
-
-   32 LOGICA: NOT LOGICA .
-   33       | LOGICA . AND LOGICA
-   34       | LOGICA . OR LOGICA
-
-    $default  reduce using rule 32 (LOGICA)
-
-
-state 68
-
-   33 LOGICA: LOGICA . AND LOGICA
-   34       | LOGICA . OR LOGICA
-   35       | '(' LOGICA . ')'
-
-    AND  shift, and go to state 69
-    OR   shift, and go to state 70
-    ')'  shift, and go to state 94
-
-
-state 69
-
-   33 LOGICA: LOGICA AND . LOGICA
-
-    NOT      shift, and go to state 44
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-    '('      shift, and go to state 48
-
-    LOGICA      go to state 95
-    VALOR       go to state 50
-    EXPR_RELAC  go to state 51
-
-
-state 70
-
-   34 LOGICA: LOGICA OR . LOGICA
-
-    NOT      shift, and go to state 44
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-    '('      shift, and go to state 48
-
-    LOGICA      go to state 96
-    VALOR       go to state 50
-    EXPR_RELAC  go to state 51
-
-
-state 71
-
-   47 IF_COMANDO: IF '(' LOGICA ')' . BLOCO ELSE BLOCO
-   48           | IF '(' LOGICA ')' . BLOCO
-
-    '{'  shift, and go to state 3
-
-    BLOCO  go to state 97
-
-
-state 72
-
-   41 EXPR_RELAC: VALOR EQ . VALOR
-
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-
-    VALOR  go to state 98
-
-
-state 73
-
-   42 EXPR_RELAC: VALOR NEQ . VALOR
-
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-
-    VALOR  go to state 99
-
-
-state 74
-
-   43 EXPR_RELAC: VALOR GT . VALOR
-
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-
-    VALOR  go to state 100
-
-
-state 75
-
-   44 EXPR_RELAC: VALOR LT . VALOR
-
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-
-    VALOR  go to state 101
-
-
-state 76
-
-   45 EXPR_RELAC: VALOR GTEQ . VALOR
-
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-
-    VALOR  go to state 102
-
-
-state 77
-
-   46 EXPR_RELAC: VALOR LTEQ . VALOR
-
-    INTEIRO  shift, and go to state 45
-    REAL     shift, and go to state 46
-    VAR      shift, and go to state 47
-
-    VALOR  go to state 103
-
-
-state 78
-
-   49 WHILE_COMANDO: WHILE '(' LOGICA ')' . BLOCO
-
-    '{'  shift, and go to state 3
-
-    BLOCO  go to state 104
-
-
-state 79
-
-   26 ATRIB: VAR '=' CARACTERE ';' .
-
-    $default  reduce using rule 26 (ATRIB)
-
-
-state 80
-
-   17 EXPR: EXPR . '+' EXPR
-   18     | EXPR . '-' EXPR
-   19     | EXPR . '*' EXPR
-   20     | EXPR . '/' EXPR
-   21     | '(' EXPR . ')'
-
-    '+'  shift, and go to state 81
-    '-'  shift, and go to state 82
-    '*'  shift, and go to state 83
-    '/'  shift, and go to state 84
-    ')'  shift, and go to state 105
-
-
-state 81
-
-   17 EXPR: EXPR '+' . EXPR
-
-    INTEIRO  shift, and go to state 53
-    REAL     shift, and go to state 54
-    VAR      shift, and go to state 56
-    '('      shift, and go to state 57
-
-    EXPR  go to state 106
-
-
-state 82
-
-   18 EXPR: EXPR '-' . EXPR
-
-    INTEIRO  shift, and go to state 53
-    REAL     shift, and go to state 54
-    VAR      shift, and go to state 56
-    '('      shift, and go to state 57
-
-    EXPR  go to state 107
-
-
-state 83
-
-   19 EXPR: EXPR '*' . EXPR
-
-    INTEIRO  shift, and go to state 53
-    REAL     shift, and go to state 54
-    VAR      shift, and go to state 56
-    '('      shift, and go to state 57
-
-    EXPR  go to state 108
-
-
-state 84
-
-   20 EXPR: EXPR '/' . EXPR
-
-    INTEIRO  shift, and go to state 53
-    REAL     shift, and go to state 54
-    VAR      shift, and go to state 56
-    '('      shift, and go to state 57
-
-    EXPR  go to state 109
-
-
-state 85
-
-   25 ATRIB: VAR '=' EXPR ';' .
-
-    $default  reduce using rule 25 (ATRIB)
-
-
-state 86
-
-   13 DECLARACAO: INT VAR '=' EXPR ';' .
-
-    $default  reduce using rule 13 (DECLARACAO)
-
-
-state 87
-
-   11 DECLARACAO: FLOAT VAR '=' EXPR ';' .
-
-    $default  reduce using rule 11 (DECLARACAO)
-
-
-state 88
-
-   15 DECLARACAO: CHAR VAR '=' CARACTERE ';' .
-
-    $default  reduce using rule 15 (DECLARACAO)
-
-
-state 89
-
-   28 SAIDA: PRINT '(' INTEIRO ')' ';' .
-
-    $default  reduce using rule 28 (SAIDA)
-
-
-state 90
-
-   29 SAIDA: PRINT '(' REAL ')' ';' .
-
-    $default  reduce using rule 29 (SAIDA)
-
-
-state 91
-
-   30 SAIDA: PRINT '(' CARACTERE ')' ';' .
-
-    $default  reduce using rule 30 (SAIDA)
-
-
-state 92
-
-   27 SAIDA: PRINT '(' VAR ')' ';' .
-
-    $default  reduce using rule 27 (SAIDA)
-
-
-state 93
-
-   31 ENTRADA: READ '(' VAR ')' ';' .
-
-    $default  reduce using rule 31 (ENTRADA)
-
-
-state 94
-
-   35 LOGICA: '(' LOGICA ')' .
-
-    $default  reduce using rule 35 (LOGICA)
-
-
-state 95
-
-   33 LOGICA: LOGICA . AND LOGICA
-   33       | LOGICA AND LOGICA .
-   34       | LOGICA . OR LOGICA
-
-    $default  reduce using rule 33 (LOGICA)
-
-
-state 96
-
-   33 LOGICA: LOGICA . AND LOGICA
-   34       | LOGICA . OR LOGICA
-   34       | LOGICA OR LOGICA .
-
-    AND  shift, and go to state 69
+   34 LOGICA: VALOR .
+   38 EXPR_RELAC: VALOR . EQ VALOR
+   39           | VALOR . NEQ VALOR
+   40           | VALOR . GT VALOR
+   41           | VALOR . LT VALOR
+   42           | VALOR . GTEQ VALOR
+   43           | VALOR . LTEQ VALOR
+
+    EQ    shift, and go to state 63
+    NEQ   shift, and go to state 64
+    GT    shift, and go to state 65
+    LT    shift, and go to state 66
+    GTEQ  shift, and go to state 67
+    LTEQ  shift, and go to state 68
 
     $default  reduce using rule 34 (LOGICA)
 
 
-state 97
+state 44
 
-   47 IF_COMANDO: IF '(' LOGICA ')' BLOCO . ELSE BLOCO
-   48           | IF '(' LOGICA ')' BLOCO .
+   33 LOGICA: EXPR_RELAC .
 
-    ELSE  shift, and go to state 110
-
-    $default  reduce using rule 48 (IF_COMANDO)
+    $default  reduce using rule 33 (LOGICA)
 
 
-state 98
+state 45
 
-   41 EXPR_RELAC: VALOR EQ VALOR .
+   22 EXPR: INTEIRO .
 
-    $default  reduce using rule 41 (EXPR_RELAC)
-
-
-state 99
-
-   42 EXPR_RELAC: VALOR NEQ VALOR .
-
-    $default  reduce using rule 42 (EXPR_RELAC)
+    $default  reduce using rule 22 (EXPR)
 
 
-state 100
+state 46
 
-   43 EXPR_RELAC: VALOR GT VALOR .
-
-    $default  reduce using rule 43 (EXPR_RELAC)
-
-
-state 101
-
-   44 EXPR_RELAC: VALOR LT VALOR .
-
-    $default  reduce using rule 44 (EXPR_RELAC)
-
-
-state 102
-
-   45 EXPR_RELAC: VALOR GTEQ VALOR .
-
-    $default  reduce using rule 45 (EXPR_RELAC)
-
-
-state 103
-
-   46 EXPR_RELAC: VALOR LTEQ VALOR .
-
-    $default  reduce using rule 46 (EXPR_RELAC)
-
-
-state 104
-
-   49 WHILE_COMANDO: WHILE '(' LOGICA ')' BLOCO .
-
-    $default  reduce using rule 49 (WHILE_COMANDO)
-
-
-state 105
-
-   21 EXPR: '(' EXPR ')' .
+   21 EXPR: REAL .
 
     $default  reduce using rule 21 (EXPR)
 
 
-state 106
+state 47
 
-   17 EXPR: EXPR . '+' EXPR
-   17     | EXPR '+' EXPR .
-   18     | EXPR . '-' EXPR
-   19     | EXPR . '*' EXPR
-   20     | EXPR . '/' EXPR
+   24 ATRIB: VAR '=' CARACTERE . ';'
 
-    '*'  shift, and go to state 83
-    '/'  shift, and go to state 84
-
-    $default  reduce using rule 17 (EXPR)
+    ';'  shift, and go to state 69
 
 
-state 107
+state 48
 
-   17 EXPR: EXPR . '+' EXPR
-   18     | EXPR . '-' EXPR
-   18     | EXPR '-' EXPR .
-   19     | EXPR . '*' EXPR
-   20     | EXPR . '/' EXPR
-
-    '*'  shift, and go to state 83
-    '/'  shift, and go to state 84
-
-    $default  reduce using rule 18 (EXPR)
-
-
-state 108
-
-   17 EXPR: EXPR . '+' EXPR
-   18     | EXPR . '-' EXPR
-   19     | EXPR . '*' EXPR
-   19     | EXPR '*' EXPR .
-   20     | EXPR . '/' EXPR
-
-    $default  reduce using rule 19 (EXPR)
-
-
-state 109
-
-   17 EXPR: EXPR . '+' EXPR
-   18     | EXPR . '-' EXPR
-   19     | EXPR . '*' EXPR
-   20     | EXPR . '/' EXPR
-   20     | EXPR '/' EXPR .
+   20 EXPR: VAR .
 
     $default  reduce using rule 20 (EXPR)
 
 
-state 110
+state 49
 
-   47 IF_COMANDO: IF '(' LOGICA ')' BLOCO ELSE . BLOCO
+   19 EXPR: '(' . EXPR ')'
+
+    INTEIRO  shift, and go to state 45
+    REAL     shift, and go to state 46
+    VAR      shift, and go to state 48
+    '('      shift, and go to state 49
+
+    EXPR  go to state 70
+
+
+state 50
+
+   15 EXPR: EXPR . '+' EXPR
+   16     | EXPR . '-' EXPR
+   17     | EXPR . '*' EXPR
+   18     | EXPR . '/' EXPR
+   23 ATRIB: VAR '=' EXPR . ';'
+
+    '+'  shift, and go to state 71
+    '-'  shift, and go to state 72
+    '*'  shift, and go to state 73
+    '/'  shift, and go to state 74
+    ';'  shift, and go to state 75
+
+
+state 51
+
+   26 SAIDA: PRINT '(' INTEIRO ')' . ';'
+
+    ';'  shift, and go to state 76
+
+
+state 52
+
+   27 SAIDA: PRINT '(' REAL ')' . ';'
+
+    ';'  shift, and go to state 77
+
+
+state 53
+
+   28 SAIDA: PRINT '(' CARACTERE ')' . ';'
+
+    ';'  shift, and go to state 78
+
+
+state 54
+
+   25 SAIDA: PRINT '(' VAR ')' . ';'
+
+    ';'  shift, and go to state 79
+
+
+state 55
+
+   11 DECLARACAO: FIRBS VAR '=' EXPR . ';'
+   15 EXPR: EXPR . '+' EXPR
+   16     | EXPR . '-' EXPR
+   17     | EXPR . '*' EXPR
+   18     | EXPR . '/' EXPR
+
+    '+'  shift, and go to state 71
+    '-'  shift, and go to state 72
+    '*'  shift, and go to state 73
+    '/'  shift, and go to state 74
+    ';'  shift, and go to state 80
+
+
+state 56
+
+    9 DECLARACAO: PABA VAR '=' EXPR . ';'
+   15 EXPR: EXPR . '+' EXPR
+   16     | EXPR . '-' EXPR
+   17     | EXPR . '*' EXPR
+   18     | EXPR . '/' EXPR
+
+    '+'  shift, and go to state 71
+    '-'  shift, and go to state 72
+    '*'  shift, and go to state 73
+    '/'  shift, and go to state 74
+    ';'  shift, and go to state 81
+
+
+state 57
+
+   13 DECLARACAO: KOOJ VAR '=' CARACTERE . ';'
+
+    ';'  shift, and go to state 82
+
+
+state 58
+
+   29 LOGICA: NOT LOGICA .
+   30       | LOGICA . AND LOGICA
+   31       | LOGICA . OR LOGICA
+
+    $default  reduce using rule 29 (LOGICA)
+
+
+state 59
+
+   30 LOGICA: LOGICA . AND LOGICA
+   31       | LOGICA . OR LOGICA
+   32       | '(' LOGICA . ')'
+
+    AND  shift, and go to state 60
+    OR   shift, and go to state 61
+    ')'  shift, and go to state 83
+
+
+state 60
+
+   30 LOGICA: LOGICA AND . LOGICA
+
+    NOT      shift, and go to state 37
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+    '('      shift, and go to state 41
+
+    LOGICA      go to state 84
+    VALOR       go to state 43
+    EXPR_RELAC  go to state 44
+
+
+state 61
+
+   31 LOGICA: LOGICA OR . LOGICA
+
+    NOT      shift, and go to state 37
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+    '('      shift, and go to state 41
+
+    LOGICA      go to state 85
+    VALOR       go to state 43
+    EXPR_RELAC  go to state 44
+
+
+state 62
+
+   44 IF_COMANDO: LOOBLE '(' LOGICA ')' . BLOCO WOOBLE BLOCO
+   45           | LOOBLE '(' LOGICA ')' . BLOCO
 
     '{'  shift, and go to state 3
 
-    BLOCO  go to state 111
+    BLOCO  go to state 86
 
 
-state 111
+state 63
 
-   47 IF_COMANDO: IF '(' LOGICA ')' BLOCO ELSE BLOCO .
+   38 EXPR_RELAC: VALOR EQ . VALOR
 
-    $default  reduce using rule 47 (IF_COMANDO)
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+
+    VALOR  go to state 87
+
+
+state 64
+
+   39 EXPR_RELAC: VALOR NEQ . VALOR
+
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+
+    VALOR  go to state 88
+
+
+state 65
+
+   40 EXPR_RELAC: VALOR GT . VALOR
+
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+
+    VALOR  go to state 89
+
+
+state 66
+
+   41 EXPR_RELAC: VALOR LT . VALOR
+
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+
+    VALOR  go to state 90
+
+
+state 67
+
+   42 EXPR_RELAC: VALOR GTEQ . VALOR
+
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+
+    VALOR  go to state 91
+
+
+state 68
+
+   43 EXPR_RELAC: VALOR LTEQ . VALOR
+
+    INTEIRO  shift, and go to state 38
+    REAL     shift, and go to state 39
+    VAR      shift, and go to state 40
+
+    VALOR  go to state 92
+
+
+state 69
+
+   24 ATRIB: VAR '=' CARACTERE ';' .
+
+    $default  reduce using rule 24 (ATRIB)
+
+
+state 70
+
+   15 EXPR: EXPR . '+' EXPR
+   16     | EXPR . '-' EXPR
+   17     | EXPR . '*' EXPR
+   18     | EXPR . '/' EXPR
+   19     | '(' EXPR . ')'
+
+    '+'  shift, and go to state 71
+    '-'  shift, and go to state 72
+    '*'  shift, and go to state 73
+    '/'  shift, and go to state 74
+    ')'  shift, and go to state 93
+
+
+state 71
+
+   15 EXPR: EXPR '+' . EXPR
+
+    INTEIRO  shift, and go to state 45
+    REAL     shift, and go to state 46
+    VAR      shift, and go to state 48
+    '('      shift, and go to state 49
+
+    EXPR  go to state 94
+
+
+state 72
+
+   16 EXPR: EXPR '-' . EXPR
+
+    INTEIRO  shift, and go to state 45
+    REAL     shift, and go to state 46
+    VAR      shift, and go to state 48
+    '('      shift, and go to state 49
+
+    EXPR  go to state 95
+
+
+state 73
+
+   17 EXPR: EXPR '*' . EXPR
+
+    INTEIRO  shift, and go to state 45
+    REAL     shift, and go to state 46
+    VAR      shift, and go to state 48
+    '('      shift, and go to state 49
+
+    EXPR  go to state 96
+
+
+state 74
+
+   18 EXPR: EXPR '/' . EXPR
+
+    INTEIRO  shift, and go to state 45
+    REAL     shift, and go to state 46
+    VAR      shift, and go to state 48
+    '('      shift, and go to state 49
+
+    EXPR  go to state 97
+
+
+state 75
+
+   23 ATRIB: VAR '=' EXPR ';' .
+
+    $default  reduce using rule 23 (ATRIB)
+
+
+state 76
+
+   26 SAIDA: PRINT '(' INTEIRO ')' ';' .
+
+    $default  reduce using rule 26 (SAIDA)
+
+
+state 77
+
+   27 SAIDA: PRINT '(' REAL ')' ';' .
+
+    $default  reduce using rule 27 (SAIDA)
+
+
+state 78
+
+   28 SAIDA: PRINT '(' CARACTERE ')' ';' .
+
+    $default  reduce using rule 28 (SAIDA)
+
+
+state 79
+
+   25 SAIDA: PRINT '(' VAR ')' ';' .
+
+    $default  reduce using rule 25 (SAIDA)
+
+
+state 80
+
+   11 DECLARACAO: FIRBS VAR '=' EXPR ';' .
+
+    $default  reduce using rule 11 (DECLARACAO)
+
+
+state 81
+
+    9 DECLARACAO: PABA VAR '=' EXPR ';' .
+
+    $default  reduce using rule 9 (DECLARACAO)
+
+
+state 82
+
+   13 DECLARACAO: KOOJ VAR '=' CARACTERE ';' .
+
+    $default  reduce using rule 13 (DECLARACAO)
+
+
+state 83
+
+   32 LOGICA: '(' LOGICA ')' .
+
+    $default  reduce using rule 32 (LOGICA)
+
+
+state 84
+
+   30 LOGICA: LOGICA . AND LOGICA
+   30       | LOGICA AND LOGICA .
+   31       | LOGICA . OR LOGICA
+
+    $default  reduce using rule 30 (LOGICA)
+
+
+state 85
+
+   30 LOGICA: LOGICA . AND LOGICA
+   31       | LOGICA . OR LOGICA
+   31       | LOGICA OR LOGICA .
+
+    AND  shift, and go to state 60
+
+    $default  reduce using rule 31 (LOGICA)
+
+
+state 86
+
+   44 IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO . WOOBLE BLOCO
+   45           | LOOBLE '(' LOGICA ')' BLOCO .
+
+    WOOBLE  shift, and go to state 98
+
+    $default  reduce using rule 45 (IF_COMANDO)
+
+
+state 87
+
+   38 EXPR_RELAC: VALOR EQ VALOR .
+
+    $default  reduce using rule 38 (EXPR_RELAC)
+
+
+state 88
+
+   39 EXPR_RELAC: VALOR NEQ VALOR .
+
+    $default  reduce using rule 39 (EXPR_RELAC)
+
+
+state 89
+
+   40 EXPR_RELAC: VALOR GT VALOR .
+
+    $default  reduce using rule 40 (EXPR_RELAC)
+
+
+state 90
+
+   41 EXPR_RELAC: VALOR LT VALOR .
+
+    $default  reduce using rule 41 (EXPR_RELAC)
+
+
+state 91
+
+   42 EXPR_RELAC: VALOR GTEQ VALOR .
+
+    $default  reduce using rule 42 (EXPR_RELAC)
+
+
+state 92
+
+   43 EXPR_RELAC: VALOR LTEQ VALOR .
+
+    $default  reduce using rule 43 (EXPR_RELAC)
+
+
+state 93
+
+   19 EXPR: '(' EXPR ')' .
+
+    $default  reduce using rule 19 (EXPR)
+
+
+state 94
+
+   15 EXPR: EXPR . '+' EXPR
+   15     | EXPR '+' EXPR .
+   16     | EXPR . '-' EXPR
+   17     | EXPR . '*' EXPR
+   18     | EXPR . '/' EXPR
+
+    '*'  shift, and go to state 73
+    '/'  shift, and go to state 74
+
+    $default  reduce using rule 15 (EXPR)
+
+
+state 95
+
+   15 EXPR: EXPR . '+' EXPR
+   16     | EXPR . '-' EXPR
+   16     | EXPR '-' EXPR .
+   17     | EXPR . '*' EXPR
+   18     | EXPR . '/' EXPR
+
+    '*'  shift, and go to state 73
+    '/'  shift, and go to state 74
+
+    $default  reduce using rule 16 (EXPR)
+
+
+state 96
+
+   15 EXPR: EXPR . '+' EXPR
+   16     | EXPR . '-' EXPR
+   17     | EXPR . '*' EXPR
+   17     | EXPR '*' EXPR .
+   18     | EXPR . '/' EXPR
+
+    $default  reduce using rule 17 (EXPR)
+
+
+state 97
+
+   15 EXPR: EXPR . '+' EXPR
+   16     | EXPR . '-' EXPR
+   17     | EXPR . '*' EXPR
+   18     | EXPR . '/' EXPR
+   18     | EXPR '/' EXPR .
+
+    $default  reduce using rule 18 (EXPR)
+
+
+state 98
+
+   44 IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO WOOBLE . BLOCO
+
+    '{'  shift, and go to state 3
+
+    BLOCO  go to state 99
+
+
+state 99
+
+   44 IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO WOOBLE BLOCO .
+
+    $default  reduce using rule 44 (IF_COMANDO)

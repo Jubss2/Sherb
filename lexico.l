@@ -11,7 +11,7 @@
 
 digito	        [0-9]
 letra 	        [a-zA-Z]
-separador       "|"
+separador       "'"
 underscore      "_"
 inteiro         [-+]?{digito}+ 
 real            [-+]?{digito}+"."{digito}+
@@ -20,14 +20,15 @@ caractere       {separador}[a-zA-Z0-9/" "]{separador}
 var             {letra}({letra}|{digito}|{underscore})*
 
 %%
-
+"sulsul"     {return SULSUL;}
+"dagdag"     {return DAGDAG;}
+"firbs"      {return FIRBS;}
+"paba"       {return PABA;}
+"kooj"       {return KOOJ;}
+"wooble"     {return WOOBLE;}
+"looble"     {return LOOBLE;}  
 [\t ]+		 { /* ignora espaço em branco */ }
 [\n]+        { /* Ignora quebras de linha */ }
-"main"       { return MAIN; }
-"endmain"    { return ENDMAIN; }
-"int"        { return INT; }
-"float"      { return FLOAT; }
-"char"       { return CHAR; }
 "print"      { return PRINT; }
 "read"       { return READ; }
 "not"        { return NOT; }
@@ -41,7 +42,6 @@ var             {letra}({letra}|{digito}|{underscore})*
 "<="         { return LTEQ; }
 "if"         { return IF; }
 "else"       { return ELSE; }
-"while"      { return WHILE; }
 {inteiro}    { strcpy(yylval.var, yytext); return INTEIRO; }
 {real}       { strcpy(yylval.var, yytext); return REAL; }
 {caractere}  { strcpy(yylval.var, yytext); return CARACTERE; }

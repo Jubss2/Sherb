@@ -51,16 +51,23 @@
      IF = 268,
      ELSE = 269,
      WHILE = 270,
-     EQ = 271,
-     NEQ = 272,
-     GT = 273,
-     LT = 274,
-     GTEQ = 275,
-     LTEQ = 276,
-     INTEIRO = 277,
-     REAL = 278,
-     CARACTERE = 279,
-     VAR = 280
+     SULSUL = 271,
+     DAGDAG = 272,
+     FIRBS = 273,
+     PABA = 274,
+     KOOJ = 275,
+     WOOBLE = 276,
+     LOOBLE = 277,
+     EQ = 278,
+     NEQ = 279,
+     GT = 280,
+     LT = 281,
+     GTEQ = 282,
+     LTEQ = 283,
+     INTEIRO = 284,
+     REAL = 285,
+     CARACTERE = 286,
+     VAR = 287
    };
 #endif
 
@@ -78,7 +85,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 82 "sintatico.tab.h"
+#line 89 "sintatico.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
