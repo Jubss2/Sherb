@@ -83,7 +83,13 @@ lista_comando: comando EOL lista_comando { $1->prox = $3; printf("lista_comanda\
 	                                       }
               |comando EOL { $1->prox = 0; printf("lista_comando\n");
                                    $$ = $1;
-                                 }                                         
+                                 }                    
+              |if_comando lista_comando{ $1->prox = $2; printf("lista_comanda\n");
+	                                         $$ = $1;
+	                                       }
+              |if_comando{ $1->prox = 0; printf("lista_comanda\n");
+	                                         $$ = $1;
+	                                       }                                         
 
 
 bloco: OPEN_BLOCK lista_comando CLOSE_BLOCK { $$ = $2; printf("bloco\n"); } 
@@ -203,8 +209,8 @@ if_comando: LOOBLE OPEN_BRACE comparacao CLOSE_BRACE bloco
                 }
            | LOOBLE OPEN_BRACE comparacao CLOSE_BRACE bloco WOOBLE bloco
                 { $$ = (No*)malloc(sizeof(No)); printf("if else\n");
-		               $$->token = LOOBLE;
-		               $$->lookahead = $3;
+		              $$->token = LOOBLE;
+		              $$->lookahead = $3;
 		              $$->esq = $5;
 		              $$->dir = $7;
       $$->prox = NULL;
@@ -219,7 +225,6 @@ void yyerror(char *s) {
 }
 
 void imprima(No *root){
-  printf("oi");
   printf("token: %d\n", root->token);
   if(root == NULL){
     printf("null\n");
@@ -279,7 +284,18 @@ void imprima(No *root){
         fprintf(saida,"/");
         imprima(root->dir);
         break;  
-case LOOBLE:
+      case EQ:
+        imprima(root->esq);
+        fprintf(saida,"==");
+        imprima(root->dir);
+        break;
+
+      case NE:
+        imprima(root->esq);
+        fprintf(saida,"!=");
+        imprima(root->dir);
+        break;  
+      case LOOBLE:
         printf("IF\n");
         fprintf(saida," \nif ");
         fprintf(saida,"(");

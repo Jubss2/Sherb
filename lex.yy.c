@@ -382,9 +382,9 @@ static yyconst flex_int16_t yy_accept[60] =
         0,    0,   24,   22,    2,    1,   22,   15,   16,   21,
        21,   19,   11,   20,   22,   12,   12,   12,   12,   12,
        12,   12,   17,   22,   18,   14,   11,    0,   13,   12,
-       12,   12,   12,   12,   12,   12,   12,   10,   12,    6,
-       12,   12,   12,   12,   12,   12,    5,   12,    4,   12,
-       12,    3,   12,   12,   12,    9,    7,    8,    0
+       12,   12,   12,   12,   12,   12,   12,   10,   12,    8,
+       12,   12,   12,   12,   12,   12,    7,   12,    6,   12,
+       12,    5,   12,   12,   12,    4,    9,    3,    0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -789,112 +789,112 @@ YY_RULE_SETUP
 case 3:
 YY_RULE_SETUP
 #line 16 "sims.l"
-{ return FIRBS; }
+{ return WOOBLE; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 17 "sims.l"
-{ return PABA; }
+{ return LOOBLE; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 18 "sims.l"
-{ return KOOJ; }
+{ return FIRBS; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 19 "sims.l"
-{ return FRO;}
+{ return PABA; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 20 "sims.l"
-{ return SULSUL; }
+{ return KOOJ; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 21 "sims.l"
-{ return WOOBLE; }
+{ return FRO;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 22 "sims.l"
-{ return LOOBLE; }
+{ return SULSUL; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 24 "sims.l"
+#line 25 "sims.l"
 { yylval.pont->rval = atof(yytext);  printf("numeroreal\n");
                                            return NUMREAL;
                                          }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 28 "sims.l"
+#line 29 "sims.l"
 { yylval.pont->ival = atoi(yytext); printf("numerointeiro\n");
                                            return NUMINTEIRO;
                                          }                                       
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 31 "sims.l"
+#line 32 "sims.l"
 { strncpy(yylval.pont->nome, yytext, 256);
                        return ID;
                      }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 35 "sims.l"
+#line 36 "sims.l"
 { return EQ; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 36 "sims.l"
+#line 37 "sims.l"
 { return NE; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 37 "sims.l"
+#line 38 "sims.l"
 { return OPEN_BRACE; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 38 "sims.l"
+#line 39 "sims.l"
 { return CLOSE_BRACE; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 39 "sims.l"
+#line 40 "sims.l"
 { return OPEN_BLOCK; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 40 "sims.l"
+#line 41 "sims.l"
 { return CLOSE_BLOCK; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 41 "sims.l"
+#line 42 "sims.l"
 { return COMMA; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 42 "sims.l"
+#line 43 "sims.l"
 { return EOL; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 44 "sims.l"
+#line 45 "sims.l"
 { return *yytext; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 46 "sims.l"
+#line 47 "sims.l"
 { return *yytext; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 48 "sims.l"
+#line 49 "sims.l"
 ECHO;
 	YY_BREAK
 #line 901 "lex.yy.c"
@@ -1895,7 +1895,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 48 "sims.l"
+#line 49 "sims.l"
 
 
 int yywrap(void){
