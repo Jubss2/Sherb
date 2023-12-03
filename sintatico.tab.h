@@ -38,25 +38,29 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     ID = 258,
-     NUMINTEIRO = 259,
-     NUMREAL = 260,
-     EOL = 261,
-     FIRBS = 262,
-     PABA = 263,
-     KOOJ = 264,
-     FRO = 265,
-     LOOBLE = 266,
-     WOOBLE = 267,
-     OPEN_BRACE = 268,
-     SULSUL = 269,
-     CLOSE_BRACE = 270,
-     OPEN_BLOCK = 271,
-     CLOSE_BLOCK = 272,
-     COMMA = 273,
-     EQ = 274,
-     GQ = 275,
-     NE = 276
+     MAIN = 258,
+     ENDMAIN = 259,
+     INT = 260,
+     FLOAT = 261,
+     CHAR = 262,
+     PRINT = 263,
+     READ = 264,
+     NOT = 265,
+     AND = 266,
+     OR = 267,
+     IF = 268,
+     ELSE = 269,
+     WHILE = 270,
+     EQ = 271,
+     NEQ = 272,
+     GT = 273,
+     LT = 274,
+     GTEQ = 275,
+     LTEQ = 276,
+     INTEIRO = 277,
+     REAL = 278,
+     CARACTERE = 279,
+     VAR = 280
    };
 #endif
 
@@ -67,14 +71,14 @@ typedef union YYSTYPE
 {
 
 /* Line 1685 of yacc.c  */
-#line 26 "sims.y"
+#line 23 "sintatico.y"
 
-  No *pont;
+	char var[256];
 
 
 
 /* Line 1685 of yacc.c  */
-#line 78 "sims.tab.h"
+#line 82 "sintatico.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
