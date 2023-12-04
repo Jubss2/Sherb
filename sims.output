@@ -9,6 +9,7 @@ Terminals unused in grammar
    IF
    ELSE
    WHILE
+   MAKA
 
 
 Grammar
@@ -51,7 +52,7 @@ Grammar
    27      | PRINT '(' REAL ')' ENDCOMMA
    28      | PRINT '(' CARACTERE ')' ENDCOMMA
 
-   29 LOGICA: NOT LOGICA
+   29 LOGICA: NEESHGA LOGICA
    30       | LOGICA AND LOGICA
    31       | LOGICA OR LOGICA
    32       | '(' LOGICA ')'
@@ -93,7 +94,7 @@ FLOAT (261)
 CHAR (262)
 PRINT (263) 26 27 28
 READ (264)
-NOT (265) 29
+NEESHGA (265) 29
 AND (266) 30
 OR (267) 31
 IF (268)
@@ -108,46 +109,47 @@ WOOBLE (276) 44
 LOOBLE (277) 44 45
 JUUN (278) 25
 ENDCOMMA (279) 9 10 11 12 13 14 23 24 25 26 27 28
-EQ (280) 38
-NEQ (281) 39
-GT (282) 40
-LT (283) 41
-GTEQ (284) 42
-LTEQ (285) 43
-INTEIRO (286) 22 26 36
-REAL (287) 21 27 37
-CARACTERE (288) 13 24 28
-VAR (289) 9 10 11 12 13 14 20 23 24 25 35
+MAKA (280)
+EQ (281) 38
+NEQ (282) 39
+GT (283) 40
+LT (284) 41
+GTEQ (285) 42
+LTEQ (286) 43
+INTEIRO (287) 22 26 36
+REAL (288) 21 27 37
+CARACTERE (289) 13 24 28
+VAR (290) 9 10 11 12 13 14 20 23 24 25 35
 
 
 Nonterminals, with rules where they appear
 
-$accept (44)
+$accept (45)
     on left: 0
-program (45)
+program (46)
     on left: 1, on right: 0
-BLOCO (46)
+BLOCO (47)
     on left: 2, on right: 1 44 45
-COMANDOS (47)
+COMANDOS (48)
     on left: 3 4, on right: 2 3
-COMANDO (48)
+COMANDO (49)
     on left: 5 6 7 8, on right: 3 4
-DECLARACAO (49)
+DECLARACAO (50)
     on left: 9 10 11 12 13 14, on right: 5
-EXPR (50)
+EXPR (51)
     on left: 15 16 17 18 19 20 21 22, on right: 9 11 15 16 17 18 19
     23
-ATRIB (51)
+ATRIB (52)
     on left: 23 24, on right: 6
-SAIDA (52)
+SAIDA (53)
     on left: 25 26 27 28, on right: 7
-LOGICA (53)
+LOGICA (54)
     on left: 29 30 31 32 33 34, on right: 29 30 31 32 44 45
-VALOR (54)
+VALOR (55)
     on left: 35 36 37, on right: 34 38 39 40 41 42 43
-EXPR_RELAC (55)
+EXPR_RELAC (56)
     on left: 38 39 40 41 42 43, on right: 33
-IF_COMANDO (56)
+IF_COMANDO (57)
     on left: 44 45, on right: 8
 
 
@@ -372,7 +374,7 @@ state 24
    44 IF_COMANDO: LOOBLE '(' . LOGICA ')' BLOCO WOOBLE BLOCO
    45           | LOOBLE '(' . LOGICA ')' BLOCO
 
-    NOT      shift, and go to state 38
+    NEESHGA  shift, and go to state 38
     INTEIRO  shift, and go to state 39
     REAL     shift, and go to state 40
     VAR      shift, and go to state 41
@@ -493,9 +495,9 @@ state 37
 
 state 38
 
-   29 LOGICA: NOT . LOGICA
+   29 LOGICA: NEESHGA . LOGICA
 
-    NOT      shift, and go to state 38
+    NEESHGA  shift, and go to state 38
     INTEIRO  shift, and go to state 39
     REAL     shift, and go to state 40
     VAR      shift, and go to state 41
@@ -531,7 +533,7 @@ state 42
 
    32 LOGICA: '(' . LOGICA ')'
 
-    NOT      shift, and go to state 38
+    NEESHGA  shift, and go to state 38
     INTEIRO  shift, and go to state 39
     REAL     shift, and go to state 40
     VAR      shift, and go to state 41
@@ -703,7 +705,7 @@ state 58
 
 state 59
 
-   29 LOGICA: NOT LOGICA .
+   29 LOGICA: NEESHGA LOGICA .
    30       | LOGICA . AND LOGICA
    31       | LOGICA . OR LOGICA
 
@@ -725,7 +727,7 @@ state 61
 
    30 LOGICA: LOGICA AND . LOGICA
 
-    NOT      shift, and go to state 38
+    NEESHGA  shift, and go to state 38
     INTEIRO  shift, and go to state 39
     REAL     shift, and go to state 40
     VAR      shift, and go to state 41
@@ -740,7 +742,7 @@ state 62
 
    31 LOGICA: LOGICA OR . LOGICA
 
-    NOT      shift, and go to state 38
+    NEESHGA  shift, and go to state 38
     INTEIRO  shift, and go to state 39
     REAL     shift, and go to state 40
     VAR      shift, and go to state 41

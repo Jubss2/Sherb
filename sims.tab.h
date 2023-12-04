@@ -45,7 +45,7 @@
      CHAR = 262,
      PRINT = 263,
      READ = 264,
-     NOT = 265,
+     NEESHGA = 265,
      AND = 266,
      OR = 267,
      IF = 268,
@@ -60,16 +60,17 @@
      LOOBLE = 277,
      JUUN = 278,
      ENDCOMMA = 279,
-     EQ = 280,
-     NEQ = 281,
-     GT = 282,
-     LT = 283,
-     GTEQ = 284,
-     LTEQ = 285,
-     INTEIRO = 286,
-     REAL = 287,
-     CARACTERE = 288,
-     VAR = 289
+     MAKA = 280,
+     EQ = 281,
+     NEQ = 282,
+     GT = 283,
+     LT = 284,
+     GTEQ = 285,
+     LTEQ = 286,
+     INTEIRO = 287,
+     REAL = 288,
+     CARACTERE = 289,
+     VAR = 290
    };
 #endif
 
@@ -87,7 +88,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 91 "sims.tab.h"
+#line 92 "sims.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
