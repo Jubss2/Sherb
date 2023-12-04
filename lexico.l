@@ -21,6 +21,7 @@ var             {letra}({letra}|{digito}|{underscore})*
 
 %%
 ";"          {return ENDCOMMA;}
+"maka"       {return MAKA;}
 "sulsul"     {return SULSUL;}
 "dagdag"     {return DAGDAG;}
 "firbs"      {return FIRBS;}
@@ -33,7 +34,7 @@ var             {letra}({letra}|{digito}|{underscore})*
 [\n]+        { /* Ignora quebras de linha */ }
 "print"      { return PRINT; }
 "read"       { return READ; }
-"not"        { return NOT; }
+"neeshga"        { return NEESHGA; }
 "and"        { return AND; }
 "or"         { return OR; }
 "=="         { return EQ; }

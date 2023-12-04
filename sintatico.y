@@ -24,8 +24,8 @@ void yyerror(const char *);
 	char var[256];
 }
 
-%token MAIN ENDMAIN INT FLOAT CHAR PRINT READ NOT AND OR IF ELSE WHILE
-%token SULSUL DAGDAG FIRBS PABA KOOJ WOOBLE LOOBLE JUUN ENDCOMMA
+%token MAIN ENDMAIN INT FLOAT CHAR PRINT READ NEESHGA AND OR IF ELSE WHILE
+%token SULSUL DAGDAG FIRBS PABA KOOJ WOOBLE LOOBLE JUUN ENDCOMMA MAKA
 %token EQ NEQ GT LT GTEQ LTEQ
 %token <var> INTEIRO
 %token <var> REAL
@@ -43,12 +43,13 @@ void yyerror(const char *);
 %type <var> VALOR
 %type <var> EXPR_RELAC
 %type <var> IF_COMANDO
+%type <var> WHILE_COMANDO
 
 %left '+' '-'
 %left '*' '/'
 %left OR
 %left AND
-%left NOT
+%left NEESHGA
 
 %start program
 
@@ -234,7 +235,7 @@ SAIDA:  JUUN '(' VAR ')' ENDCOMMA
 		}
 		;
 
-LOGICA: NOT LOGICA 			
+LOGICA: NEESHGA LOGICA 			
 		{ 
 			strcpy($$, "!");
 			strcat($$, $2);
@@ -319,6 +320,17 @@ IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO WOOBLE BLOCO
 				strcat($$, "){\n");
 				strcat($$, $5);
 				strcat($$, "}\n");
+			}
+		;
+
+WHILE_COMANDO: MAKA '(' LOGICA ')' BLOCO
+			{
+				strcpy($$, "\twhile(");
+				strcat($$, $3);
+				strcat($$, "){\n");
+				strcat($$, $5);
+				strcat($$, "}\n");
+				printf("While rodando");
 			}
 		;
 

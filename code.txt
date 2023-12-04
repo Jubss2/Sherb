@@ -9,8 +9,8 @@ paba notaFinal;
 n1 = nota1 + nota2;
 n2 = nota3 + nota4;
 notaFinal = n1 + n2;
-looble(notaFinal < 6){
+looble(notaFinal > 6){
 	paba sub;
 	sub = 12 - n2;
-}	
+}
 } dagdag
