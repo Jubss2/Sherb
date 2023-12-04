@@ -67,7 +67,7 @@
 /* Copy the first part of user declarations.  */
 
 /* Line 189 of yacc.c  */
-#line 1 "sintatico.y"
+#line 1 "sims.y"
 
 /* analisador sintático */
 #include <iostream>
@@ -91,7 +91,7 @@ void yyerror(const char *);
 
 
 /* Line 189 of yacc.c  */
-#line 95 "sintatico.tab.c"
+#line 95 "sims.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -160,14 +160,14 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 23 "sintatico.y"
+#line 23 "sims.y"
 
 	char var[256];
 
 
 
 /* Line 214 of yacc.c  */
-#line 171 "sintatico.tab.c"
+#line 171 "sims.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -179,7 +179,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 183 "sintatico.tab.c"
+#line 183 "sims.tab.c"
 
 #ifdef short
 # undef short
@@ -1467,7 +1467,7 @@ yyreduce:
         case 2:
 
 /* Line 1464 of yacc.c  */
-#line 58 "sintatico.y"
+#line 58 "sims.y"
     {
 		codigo = "#include<stdio.h>\n";		
 		codigo += "#include<stdlib.h>\n";		
@@ -1481,7 +1481,7 @@ yyreduce:
   case 3:
 
 /* Line 1464 of yacc.c  */
-#line 69 "sintatico.y"
+#line 69 "sims.y"
     { 
 			strncpy((yyval.var), (yyvsp[(2) - (3)].var), 256);
 		;}
@@ -1490,7 +1490,7 @@ yyreduce:
   case 4:
 
 /* Line 1464 of yacc.c  */
-#line 75 "sintatico.y"
+#line 75 "sims.y"
     {
 				strcat((yyval.var), (yyvsp[(2) - (2)].var));
 			;}
@@ -1499,7 +1499,7 @@ yyreduce:
   case 5:
 
 /* Line 1464 of yacc.c  */
-#line 79 "sintatico.y"
+#line 79 "sims.y"
     {
 				
 			;}
@@ -1508,7 +1508,7 @@ yyreduce:
   case 10:
 
 /* Line 1464 of yacc.c  */
-#line 91 "sintatico.y"
+#line 91 "sims.y"
     { 
 				strcpy((yyval.var), "\tfloat ");
 				strcat((yyval.var), (yyvsp[(2) - (5)].var));
@@ -1522,7 +1522,7 @@ yyreduce:
   case 11:
 
 /* Line 1464 of yacc.c  */
-#line 100 "sintatico.y"
+#line 100 "sims.y"
     { 
 				strcpy((yyval.var), "\tfloat ");
 				strcat((yyval.var), (yyvsp[(2) - (3)].var));
@@ -1534,7 +1534,7 @@ yyreduce:
   case 12:
 
 /* Line 1464 of yacc.c  */
-#line 107 "sintatico.y"
+#line 107 "sims.y"
     { 
 				strcpy((yyval.var), "\tint ");
 				strcat((yyval.var), (yyvsp[(2) - (5)].var));
@@ -1548,7 +1548,7 @@ yyreduce:
   case 13:
 
 /* Line 1464 of yacc.c  */
-#line 116 "sintatico.y"
+#line 116 "sims.y"
     { 
 				strcpy((yyval.var), "\tint ");
 				strcat((yyval.var), (yyvsp[(2) - (3)].var));
@@ -1560,7 +1560,7 @@ yyreduce:
   case 14:
 
 /* Line 1464 of yacc.c  */
-#line 123 "sintatico.y"
+#line 123 "sims.y"
     { 
 				strcpy((yyval.var), "\tchar ");
 				strcat((yyval.var), (yyvsp[(2) - (5)].var));
@@ -1577,7 +1577,7 @@ yyreduce:
   case 15:
 
 /* Line 1464 of yacc.c  */
-#line 135 "sintatico.y"
+#line 135 "sims.y"
     { 
 				strcpy((yyval.var), "\tchar ");
 				strcat((yyval.var), (yyvsp[(2) - (3)].var));
@@ -1589,7 +1589,7 @@ yyreduce:
   case 16:
 
 /* Line 1464 of yacc.c  */
-#line 146 "sintatico.y"
+#line 146 "sims.y"
     {
 		strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 		strcat((yyval.var), " + ");
@@ -1600,7 +1600,7 @@ yyreduce:
   case 17:
 
 /* Line 1464 of yacc.c  */
-#line 152 "sintatico.y"
+#line 152 "sims.y"
     {
 		strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 		strcat((yyval.var), " - ");
@@ -1611,7 +1611,7 @@ yyreduce:
   case 18:
 
 /* Line 1464 of yacc.c  */
-#line 158 "sintatico.y"
+#line 158 "sims.y"
     {
 		strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 		strcat((yyval.var), " * ");
@@ -1622,7 +1622,7 @@ yyreduce:
   case 19:
 
 /* Line 1464 of yacc.c  */
-#line 164 "sintatico.y"
+#line 164 "sims.y"
     {
 		strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 		strcat((yyval.var), " / ");
@@ -1633,7 +1633,7 @@ yyreduce:
   case 20:
 
 /* Line 1464 of yacc.c  */
-#line 170 "sintatico.y"
+#line 170 "sims.y"
     {
 		strcpy((yyval.var), "(");
 		strcat((yyval.var), (yyvsp[(2) - (3)].var));
@@ -1644,7 +1644,7 @@ yyreduce:
   case 24:
 
 /* Line 1464 of yacc.c  */
-#line 182 "sintatico.y"
+#line 182 "sims.y"
     {
 		strcpy((yyval.var), "\t");
 		strcat((yyval.var), (yyvsp[(1) - (4)].var));
@@ -1657,7 +1657,7 @@ yyreduce:
   case 25:
 
 /* Line 1464 of yacc.c  */
-#line 190 "sintatico.y"
+#line 190 "sims.y"
     { 
 		strcpy((yyval.var), "\t");
 		strcat((yyval.var), (yyvsp[(1) - (4)].var));
@@ -1673,7 +1673,7 @@ yyreduce:
   case 26:
 
 /* Line 1464 of yacc.c  */
-#line 203 "sintatico.y"
+#line 203 "sims.y"
     {
 			if(variaveis[(yyvsp[(3) - (5)].var)] == Tipo::TIPO_INT){
 				strcpy((yyval.var), "\tprintf(\"\%d\",");
@@ -1690,7 +1690,7 @@ yyreduce:
   case 27:
 
 /* Line 1464 of yacc.c  */
-#line 215 "sintatico.y"
+#line 215 "sims.y"
     { 
 			strcpy((yyval.var), "\tprintf(\"\%d\",");
 			strcat((yyval.var), (yyvsp[(3) - (5)].var));
@@ -1701,7 +1701,7 @@ yyreduce:
   case 28:
 
 /* Line 1464 of yacc.c  */
-#line 221 "sintatico.y"
+#line 221 "sims.y"
     {
 			strcpy((yyval.var), "\tprintf(\"\%f\",");
 			strcat((yyval.var), (yyvsp[(3) - (5)].var));
@@ -1712,7 +1712,7 @@ yyreduce:
   case 29:
 
 /* Line 1464 of yacc.c  */
-#line 227 "sintatico.y"
+#line 227 "sims.y"
     {
 			strcpy((yyval.var), "\tprintf(\"\%c\",");
 			char caractere[5] = "'";
@@ -1726,7 +1726,7 @@ yyreduce:
   case 30:
 
 /* Line 1464 of yacc.c  */
-#line 238 "sintatico.y"
+#line 238 "sims.y"
     { 
 			strcpy((yyval.var), "!");
 			strcat((yyval.var), (yyvsp[(2) - (2)].var));
@@ -1736,7 +1736,7 @@ yyreduce:
   case 31:
 
 /* Line 1464 of yacc.c  */
-#line 243 "sintatico.y"
+#line 243 "sims.y"
     {
 			strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 			strcat((yyval.var), "&&");
@@ -1747,7 +1747,7 @@ yyreduce:
   case 32:
 
 /* Line 1464 of yacc.c  */
-#line 249 "sintatico.y"
+#line 249 "sims.y"
     { 
 			strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 			strcat((yyval.var), "||");
@@ -1758,7 +1758,7 @@ yyreduce:
   case 33:
 
 /* Line 1464 of yacc.c  */
-#line 255 "sintatico.y"
+#line 255 "sims.y"
     {
 			strcpy((yyval.var), "(");
 			strcat((yyval.var), (yyvsp[(2) - (3)].var));
@@ -1769,7 +1769,7 @@ yyreduce:
   case 39:
 
 /* Line 1464 of yacc.c  */
-#line 268 "sintatico.y"
+#line 268 "sims.y"
     { 
 				strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 				strcat((yyval.var), "==");
@@ -1780,7 +1780,7 @@ yyreduce:
   case 40:
 
 /* Line 1464 of yacc.c  */
-#line 274 "sintatico.y"
+#line 274 "sims.y"
     { 
 				strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 				strcat((yyval.var), "!=");
@@ -1791,7 +1791,7 @@ yyreduce:
   case 41:
 
 /* Line 1464 of yacc.c  */
-#line 280 "sintatico.y"
+#line 280 "sims.y"
     { 
 				strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 				strcat((yyval.var), ">");
@@ -1802,7 +1802,7 @@ yyreduce:
   case 42:
 
 /* Line 1464 of yacc.c  */
-#line 286 "sintatico.y"
+#line 286 "sims.y"
     { 
 				strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 				strcat((yyval.var), "<");
@@ -1813,7 +1813,7 @@ yyreduce:
   case 43:
 
 /* Line 1464 of yacc.c  */
-#line 292 "sintatico.y"
+#line 292 "sims.y"
     { 
 				strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 				strcat((yyval.var), ">=");
@@ -1824,7 +1824,7 @@ yyreduce:
   case 44:
 
 /* Line 1464 of yacc.c  */
-#line 298 "sintatico.y"
+#line 298 "sims.y"
     { 
 				strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 				strcat((yyval.var), "<=");
@@ -1835,7 +1835,7 @@ yyreduce:
   case 45:
 
 /* Line 1464 of yacc.c  */
-#line 306 "sintatico.y"
+#line 306 "sims.y"
     {
 				strcpy((yyval.var), "\tif(");
 				strcat((yyval.var), (yyvsp[(3) - (7)].var));
@@ -1850,7 +1850,7 @@ yyreduce:
   case 46:
 
 /* Line 1464 of yacc.c  */
-#line 316 "sintatico.y"
+#line 316 "sims.y"
     { 
 				strcpy((yyval.var), "\tif(");
 				strcat((yyval.var), (yyvsp[(3) - (5)].var));
@@ -1863,7 +1863,7 @@ yyreduce:
 
 
 /* Line 1464 of yacc.c  */
-#line 1867 "sintatico.tab.c"
+#line 1867 "sims.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2075,7 +2075,7 @@ yyreturn:
 
 
 /* Line 1684 of yacc.c  */
-#line 325 "sintatico.y"
+#line 325 "sims.y"
 
 
 /* definido pelo analisador léxico */

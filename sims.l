@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "sintatico.tab.h"
+#include "sims.tab.h"
 %}
 
 %option yylineno

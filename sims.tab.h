@@ -80,14 +80,14 @@ typedef union YYSTYPE
 {
 
 /* Line 1685 of yacc.c  */
-#line 23 "sintatico.y"
+#line 23 "sims.y"
 
 	char var[256];
 
 
 
 /* Line 1685 of yacc.c  */
-#line 91 "sintatico.tab.h"
+#line 91 "sims.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
