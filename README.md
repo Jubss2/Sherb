@@ -6,7 +6,7 @@ O projeto foi desenvolvido por:
 - [Larissa Maria Carvalho](https://github.com/LarissaMCarvalho) - 2020003531
 - [Rafael Hadzic Rico de Sousa](https://github.com/RafaelHadzic) - 2020010302
 
-#Instalação 
+## Instalação 
 
 Para que o código seja devidamente compilado, é necessário que os seguintes programas estejam instalados na sua máquina:
 - Bison 3.8.2 ou superior
