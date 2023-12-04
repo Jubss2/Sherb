@@ -1,7 +1,7 @@
 # Sherb
 > Analisador léxico e sintático inspirado em The Sims.
 
-O projeto consiste em desenvolver um compilador capaz de criar um código .c correspondente. A documentação pode ser encontrada [aqui](https://docs.google.com/document/d/1ktNytVNfwkZdrKOjaTMDoD7I5kAFVbOiF3WxN2hWH3o/edit?usp=sharing)
+O projeto consiste em desenvolver um compilador capaz de criar um código .c correspondente. A documentação pode ser encontrada [aqui](https://drive.google.com/file/d/1B9EpaQDaXBdQUC6QSBoYsFCjt13iPCet/view?usp=sharing)
 
 O projeto foi desenvolvido por: 
 - [Júlia Furtado Araújo](https://github.com/Jubss2) - 2023005469
