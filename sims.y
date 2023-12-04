@@ -24,8 +24,7 @@ void yyerror(const char *);
 	char var[256];
 }
 
-%token MAIN ENDMAIN INT FLOAT CHAR PRINT READ NOT AND OR IF ELSE WHILE
-%token SULSUL DAGDAG FIRBS PABA KOOJ WOOBLE LOOBLE JUUN ENDCOMMA
+%token SULSUL DAGDAG FIRBS PABA KOOJ WOOBLE LOOBLE JUUN ENDCOMMA 
 %token EQ NEQ GT LT GTEQ LTEQ
 %token <var> INTEIRO
 %token <var> REAL
@@ -95,6 +94,7 @@ DECLARACAO: PABA VAR '=' EXPR ENDCOMMA
 				strcat($$, $4);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_FLOAT;
+				printf("\nATRIBUICAO");
 			}
 			| PABA VAR ENDCOMMA   		   
 			{ 
@@ -102,6 +102,7 @@ DECLARACAO: PABA VAR '=' EXPR ENDCOMMA
 				strcat($$, $2);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_FLOAT;
+				printf("\nATRIBUICAO");
 			}
 			| FIRBS VAR '=' EXPR ENDCOMMA   
 			{ 
@@ -111,6 +112,7 @@ DECLARACAO: PABA VAR '=' EXPR ENDCOMMA
 				strcat($$, $4);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_INT;
+				printf("\nATRIBUICAO");
 			}
 			| FIRBS VAR ENDCOMMA   		   
 			{ 
@@ -118,6 +120,7 @@ DECLARACAO: PABA VAR '=' EXPR ENDCOMMA
 				strcat($$, $2);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_INT;
+				printf("\nATRIBUICAO");
 			}
 			| KOOJ VAR '=' CARACTERE ENDCOMMA   
 			{ 
@@ -130,6 +133,7 @@ DECLARACAO: PABA VAR '=' EXPR ENDCOMMA
 				strcat($$, caractere);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_CHAR;
+				printf("\nATRIBUICAO");
 			}
 			| KOOJ VAR ENDCOMMA   		   
 			{ 
@@ -137,6 +141,7 @@ DECLARACAO: PABA VAR '=' EXPR ENDCOMMA
 				strcat($$, $2);
 				strcat($$, ";\n");
 				variaveis[$2] = Tipo::TIPO_CHAR;
+				printf("\nATRIBUICAO");
 			}
 		;
 
@@ -147,24 +152,28 @@ EXPR: EXPR '+' EXPR
 		strcpy($$, $1);
 		strcat($$, " + ");
 		strcat($$, $3);
+		printf("\nSOMA");
 	}
 	| EXPR '-' EXPR
 	{
 		strcpy($$, $1);
 		strcat($$, " - ");
 		strcat($$, $3);
+		printf("\nSUBTRACAO")
 	}
 	| EXPR '*' EXPR
 	{
 		strcpy($$, $1);
 		strcat($$, " * ");
 		strcat($$, $3);
+		printf("\nMULTI")
 	}
 	| EXPR '/' EXPR
 	{
 		strcpy($$, $1);
 		strcat($$, " / ");
 		strcat($$, $3);
+		printf("\nDIVISAO")
 	}
 	| '(' EXPR ')'
 	{
@@ -185,6 +194,7 @@ ATRIB: VAR '=' EXPR ENDCOMMA
 		strcat($$, " = ");
 		strcat($$, $3);
 		strcat($$, ";\n");
+		printf("\nATRIBUICAO VAR");
 	} 	
 	| VAR '=' CARACTERE ENDCOMMA  	
 	{ 
@@ -196,6 +206,7 @@ ATRIB: VAR '=' EXPR ENDCOMMA
 		caractere[2] = '\'';
 		strcat($$, caractere);
 		strcat($$, ";\n");
+		printf("\nATRIBUICAO VAR");
 	}
 	; 
 
@@ -210,20 +221,23 @@ SAIDA:  JUUN '(' VAR ')' ENDCOMMA
 			}
 				strcat($$, $3);
 				strcat($$, ");\n");
+				printf("\nIMPRIMIR");
 		}
-		| PRINT '(' INTEIRO ')' ENDCOMMA   	
+		| JUUN '(' INTEIRO ')' ENDCOMMA   	
 		{ 
 			strcpy($$, "\tprintf(\"\%d\",");
 			strcat($$, $3);
 			strcat($$, ");\n"); 
+			printf("\nIMPRIMIR");
 		}
-		| PRINT '(' REAL ')' ENDCOMMA 
+		| JUUN '(' REAL ')' ENDCOMMA 
 		{
 			strcpy($$, "\tprintf(\"\%f\",");
 			strcat($$, $3);
 			strcat($$, ");\n");
+			printf("\nIMPRIMIR");
 		}
-		| PRINT '(' CARACTERE ')' ENDCOMMA 
+		| JUUN '(' CARACTERE ')' ENDCOMMA 
 		{
 			strcpy($$, "\tprintf(\"\%c\",");
 			char caractere[5] = "'";
@@ -231,6 +245,7 @@ SAIDA:  JUUN '(' VAR ')' ENDCOMMA
 			caractere[2] = '\'';
 			strcat($$, caractere);
 			strcat($$, ");\n");
+			printf("\nIMPRIMIR");
 		}
 		;
 
@@ -238,24 +253,28 @@ LOGICA: NOT LOGICA
 		{ 
 			strcpy($$, "!");
 			strcat($$, $2);
+			printf("\nLOGICA");
 		}
       	| LOGICA AND LOGICA   
 	  	{
 			strcpy($$, $1);
 			strcat($$, "&&");
 			strcat($$, $3);
+			printf("\nLOGICA");
 	  	}
       	| LOGICA OR LOGICA    
 	  	{ 
 			strcpy($$, $1);
 			strcat($$, "||");
 			strcat($$, $3);
+			printf("\nLOGICA");
 	  	}
       	| '(' LOGICA ')'  	
 	  	{
 			strcpy($$, "(");
 			strcat($$, $2);
 			strcat($$, ")");
+			printf("\nLOGICA");
 	  	}
 	  	| EXPR_RELAC
 	  	| VALOR 
@@ -269,41 +288,34 @@ EXPR_RELAC: VALOR EQ VALOR
 				strcpy($$, $1);
 				strcat($$, "==");
 				strcat($$, $3);
+				printf("\nEXPRESSAO RELACIONAL");
 			}
 			| VALOR NEQ VALOR
 			{ 
 				strcpy($$, $1);
 				strcat($$, "!=");
 				strcat($$, $3);
+				printf("\nEXPRESSAO RELACIONAL");
 			}
 			| VALOR GT VALOR
 			{ 
 				strcpy($$, $1);
 				strcat($$, ">");
 				strcat($$, $3);
+				printf("\nEXPRESSAO RELACIONAL");
 			}
 			| VALOR LT VALOR
 			{ 
 				strcpy($$, $1);
 				strcat($$, "<");
 				strcat($$, $3);
-			}
-			| VALOR GTEQ VALOR
-			{ 
-				strcpy($$, $1);
-				strcat($$, ">=");
-				strcat($$, $3);
-			}
-			| VALOR LTEQ VALOR
-			{ 
-				strcpy($$, $1);
-				strcat($$, "<=");
-				strcat($$, $3);
+				printf("\nEXPRESSAO RELACIONAL");
 			}
 			;
 
 IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO WOOBLE BLOCO
 			{
+				printf("\nCOMANDO CONDICIONAL");
 				strcpy($$, "\tif(");
 				strcat($$, $3);
 				strcat($$, "){\n");
@@ -311,6 +323,7 @@ IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO WOOBLE BLOCO
 				strcat($$, "}else{\n");
 				strcat($$, $7);
 				strcat($$, "}\n");
+				
 			}
 			| LOOBLE '(' LOGICA ')' BLOCO
 			{ 
@@ -319,6 +332,7 @@ IF_COMANDO: LOOBLE '(' LOGICA ')' BLOCO WOOBLE BLOCO
 				strcat($$, "){\n");
 				strcat($$, $5);
 				strcat($$, "}\n");
+				printf("\nCOMANDO CONDICIONAL");
 			}
 		;
 

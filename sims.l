@@ -31,19 +31,13 @@ var             {letra}({letra}|{digito}|{underscore})*
 "juun"       {return JUUN;}
 [\t ]+		 { /* ignora espaço em branco */ }
 [\n]+        { /* Ignora quebras de linha */ }
-"print"      { return PRINT; }
-"read"       { return READ; }
-"not"        { return NOT; }
-"and"        { return AND; }
-"or"         { return OR; }
+"neeshga"    { return NOT; }
+"zor"        { return AND; }
+"mik"        { return OR; }
 "=="         { return EQ; }
 "!="         { return NEQ; }
 ">"          { return GT; }
 "<"          { return LT; }
-">="         { return GTEQ; }
-"<="         { return LTEQ; }
-"if"         { return IF; }
-"else"       { return ELSE; }
 {inteiro}    { strcpy(yylval.var, yytext); return INTEIRO; }
 {real}       { strcpy(yylval.var, yytext); return REAL; }
 {caractere}  { strcpy(yylval.var, yytext); return CARACTERE; }

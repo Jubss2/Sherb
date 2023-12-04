@@ -38,39 +38,28 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     MAIN = 258,
-     ENDMAIN = 259,
-     INT = 260,
-     FLOAT = 261,
-     CHAR = 262,
-     PRINT = 263,
-     READ = 264,
-     NEESHGA = 265,
-     AND = 266,
-     OR = 267,
-     IF = 268,
-     ELSE = 269,
-     WHILE = 270,
-     SULSUL = 271,
-     DAGDAG = 272,
-     FIRBS = 273,
-     PABA = 274,
-     KOOJ = 275,
-     WOOBLE = 276,
-     LOOBLE = 277,
-     JUUN = 278,
-     ENDCOMMA = 279,
-     MAKA = 280,
-     EQ = 281,
-     NEQ = 282,
-     GT = 283,
-     LT = 284,
-     GTEQ = 285,
-     LTEQ = 286,
-     INTEIRO = 287,
-     REAL = 288,
-     CARACTERE = 289,
-     VAR = 290
+     SULSUL = 258,
+     DAGDAG = 259,
+     FIRBS = 260,
+     PABA = 261,
+     KOOJ = 262,
+     WOOBLE = 263,
+     LOOBLE = 264,
+     JUUN = 265,
+     ENDCOMMA = 266,
+     EQ = 267,
+     NEQ = 268,
+     GT = 269,
+     LT = 270,
+     GTEQ = 271,
+     LTEQ = 272,
+     INTEIRO = 273,
+     REAL = 274,
+     CARACTERE = 275,
+     VAR = 276,
+     OR = 277,
+     AND = 278,
+     NOT = 279
    };
 #endif
 
@@ -88,7 +77,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 92 "sims.tab.h"
+#line 81 "sims.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

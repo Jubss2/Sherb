@@ -11,7 +11,7 @@ int main () {
 	n1 = nota1 + nota2;
 	n2 = nota3 + nota4;
 	notaFinal = n1 + n2;
-	if(notaFinal>6){
+	if(n1<6||n2<6){
 	float sub;
 	sub = 12 - n2;
 }
