@@ -1,6 +1,0 @@
-sulsul{
-    paba nota1 = 7;
-    maka (nota1 < 10) {
-        nota1 = nota1 + 1;
-    }
-} dagdag
