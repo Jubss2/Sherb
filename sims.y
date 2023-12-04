@@ -350,7 +350,7 @@ int main(int argc, char ** argv)
 		file = fopen(argv[1], "r");
 		if (!file)
 		{
-			cout << "Arquivo " << argv[1] << " não encontrado!\n";
+			cout << "Arquivo " << argv[1] << " nao encontrado!\n";
 			exit(1);
 		}
 		
@@ -377,6 +377,6 @@ void yyerror(const char * s)
 	extern char * yytext;   
 	
 	/* mensagem de erro exibe o símbolo que causou erro e o número da linha */
-    cout << "Erro (" << s << "): símbolo \"" << yytext << "\" (linha " << yylineno << ")\n";
+    cout << "Erro (" << s << "): simbolo \"" << yytext << "\" (linha " << yylineno << ")\n";
 	exit(1);
 }

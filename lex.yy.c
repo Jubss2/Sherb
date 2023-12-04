@@ -836,27 +836,27 @@ YY_RULE_SETUP
 case 4:
 YY_RULE_SETUP
 #line 26 "sims.l"
-{return FIRBS;}
+{printf("\nINT");return FIRBS; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 27 "sims.l"
-{return PABA;}
+{printf("\nFLOAT");return PABA; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 28 "sims.l"
-{return KOOJ;}
+{printf("\nCHAR");return KOOJ; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 29 "sims.l"
-{return WOOBLE;}
+{printf("\nIF");return WOOBLE;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 30 "sims.l"
-{return LOOBLE;}  
+{printf("\nELSE");return LOOBLE;}  
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
@@ -866,13 +866,13 @@ YY_RULE_SETUP
 case 10:
 YY_RULE_SETUP
 #line 32 "sims.l"
-{ /* ignora espaço em branco */ }
+{ /* espaço em branco */ }
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
 #line 33 "sims.l"
-{ /* Ignora quebras de linha */ }
+{ /* quebras de linha */ }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP

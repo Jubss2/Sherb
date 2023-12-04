@@ -23,11 +23,11 @@ var             {letra}({letra}|{digito}|{underscore})*
 ";"          {return ENDCOMMA;}
 "sulsul"     {return SULSUL;}
 "dagdag"     {return DAGDAG;}
-"firbs"      {return FIRBS;}
-"paba"       {return PABA;}
-"kooj"       {return KOOJ;}
-"wooble"     {return WOOBLE;}
-"looble"     {return LOOBLE;}  
+"firbs"      {printf("\nINT");return FIRBS; }
+"paba"       {printf("\nFLOAT");return PABA; }
+"kooj"       {printf("\nCHAR");return KOOJ; }
+"wooble"     {printf("\nIF");return WOOBLE;}
+"looble"     {printf("\nELSE");return LOOBLE;}  
 "juun"       {return JUUN;}
 [\t ]+		 { /* espaço em branco */ }
 [\n]+        { /* quebras de linha */ }

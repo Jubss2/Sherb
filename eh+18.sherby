@@ -1,0 +1,8 @@
+sulsul{ 
+firbs idade = 16;
+kooj permitido = 'n';
+looble(neeshga(idade < 18)){
+    permitido = 's';
+} 
+juun(permitido);
+} dagdag

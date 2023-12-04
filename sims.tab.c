@@ -1726,7 +1726,7 @@ yyreduce:
     { 
 			strcpy((yyval.var), "!");
 			strcat((yyval.var), (yyvsp[(2) - (2)].var));
-			printf("\n LOGICA");
+			printf("\nLOGICA");
 		;}
     break;
 
@@ -1738,7 +1738,7 @@ yyreduce:
 			strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 			strcat((yyval.var), "&&");
 			strcat((yyval.var), (yyvsp[(3) - (3)].var));
-			printf("\n LOGICA");
+			printf("\nLOGICA");
 	  	;}
     break;
 
@@ -1750,7 +1750,7 @@ yyreduce:
 			strcpy((yyval.var), (yyvsp[(1) - (3)].var));
 			strcat((yyval.var), "||");
 			strcat((yyval.var), (yyvsp[(3) - (3)].var));
-			printf("\n LOGICA");
+			printf("\nLOGICA");
 	  	;}
     break;
 
@@ -1762,7 +1762,7 @@ yyreduce:
 			strcpy((yyval.var), "(");
 			strcat((yyval.var), (yyvsp[(2) - (3)].var));
 			strcat((yyval.var), ")");
-			printf("\n LOGICA");
+			printf("\nLOGICA");
 	  	;}
     break;
 

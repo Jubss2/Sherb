@@ -1,0 +1,12 @@
+sulsul{
+paba n1 = 7.5;
+paba n2 = 5.0;
+paba sum = n1 + n2;
+paba sub = n1 - n2;
+paba mult = n1 * n2;
+paba div = n1 / n2;
+juun(sum);
+juun(sub);
+juun(mult);
+juun(div);
+} dagdag
