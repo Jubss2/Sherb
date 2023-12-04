@@ -29,8 +29,8 @@ var             {letra}({letra}|{digito}|{underscore})*
 "wooble"     {return WOOBLE;}
 "looble"     {return LOOBLE;}  
 "juun"       {return JUUN;}
-[\t ]+		 { /* ignora espaço em branco */ }
-[\n]+        { /* Ignora quebras de linha */ }
+[\t ]+		 { /* espaço em branco */ }
+[\n]+        { /* quebras de linha */ }
 "neeshga"    { return NOT; }
 "zor"        { return AND; }
 "mik"        { return OR; }
