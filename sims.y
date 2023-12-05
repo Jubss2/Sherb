@@ -25,7 +25,7 @@ void yyerror(const char *);
 }
 
 %token SULSUL DAGDAG FIRBS PABA KOOJ WOOBLE LOOBLE JUUN ENDCOMMA 
-%token EQ NEQ GT LT GTEQ LTEQ
+%token EQ NEQ GT LT
 %token <var> INTEIRO
 %token <var> REAL
 %token <var> CARACTERE

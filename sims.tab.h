@@ -51,15 +51,13 @@
      NEQ = 268,
      GT = 269,
      LT = 270,
-     GTEQ = 271,
-     LTEQ = 272,
-     INTEIRO = 273,
-     REAL = 274,
-     CARACTERE = 275,
-     VAR = 276,
-     OR = 277,
-     AND = 278,
-     NOT = 279
+     INTEIRO = 271,
+     REAL = 272,
+     CARACTERE = 273,
+     VAR = 274,
+     OR = 275,
+     AND = 276,
+     NOT = 277
    };
 #endif
 
@@ -77,7 +75,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 81 "sims.tab.h"
+#line 79 "sims.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
